@@ -8,7 +8,7 @@ Since the students are taught in German, the rest of the readme __in German.__*
 ## Verwendung
 Um den **Automated Pattern Exercise Tester** verwenden zu können laden Sie sich bitte den letzten Release des Tools herunter.
 
-[![Github All Releases](https://img.shields.io/badge/Download-LatestRelease-green.svg)](https://github.com/duffleit/AutomatedPatternExerciseTester/releases/latest)
+[![Github All Releases](https://img.shields.io/badge/Download-LatestRelease-brightgreen.svg)](https://github.com/duffleit/AutomatedPatternExerciseTester/releases/latest)
 
 **Usage:** 
 
