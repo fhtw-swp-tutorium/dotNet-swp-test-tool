@@ -1,7 +1,7 @@
 # Automated Pattern Exercise Tester
 [![Build Status](https://travis-ci.org/duffleit/AutomatedPatternExerciseTester.svg?branch=master)](https://travis-ci.org/duffleit/AutomatedPatternExerciseTester)
 
-*A console application, which allows students to __automated check the correctness__ of their __implemented GOF pattern__.
+*This is a console application, which allows students to __automated check the correctness__ of their __implemented GOF pattern__.
 The project was created for use at the [University of Applied Science Vienna](http://www.technikum-wien.at/en/). 
 Since the students are taught in German, the rest of the readme __in German.__*
 
@@ -16,6 +16,6 @@ Um den **Automated Pattern Exercise Tester** verwenden zu können laden Sie sich
 
 *der __Pfad zur Exe__ und __genau eine Uebung__ (ue1, ue2 oder ue3) __müssen angegeben werden__.*
 
-## Anganben
+## Übungsangaben
 
 Die Übungsangaben können im [Wiki](https://github.com/duffleit/AutomatedPatternExerciseTester/wiki) eingesehen werden.
