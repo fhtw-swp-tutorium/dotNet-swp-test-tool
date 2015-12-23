@@ -37,8 +37,8 @@
     <Compile Include="FacadeInterfaces\ITestExecutor.cs" />
     <Compile Include="Reflection\ReflectionContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestResult\TestCaseGroupResult.cs" />
-    <Compile Include="TestResult\TestResult.cs" />
+    <Compile Include="TestResultEntities\TestCaseGroupResult.cs" />
+    <Compile Include="TestResultEntities\TestResult.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
