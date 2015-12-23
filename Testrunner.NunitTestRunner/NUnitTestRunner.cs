@@ -1,76 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using NUnit.Framework.Api;
-using Test.Common;
-using Testrunner.Common;
-using Tests.ExerciseOne;
-using Tests.ExerciseOne.ObserverTest;
+using Testrunner.NunitTestRunner;
 using ReflectionContext = Test.Common.ReflectionContext;
 
-namespace Testrunner.NunitTestRunner
+namespace TestExecutor.Nunit
 {
-    public class NUnitTestRunner
+    public class NUnitTestRunner : ITestExecutor
     {
-        public TestRunnerResult Run(Arguments arguments)
+        public TestResult Run(string exePath, string exercise)
         {
-            var exerciseTestDefintion = ExerciseTestDefintionFactory.Get(arguments.Exercise);
+            ReflectionContext.Initialize(exePath);
 
-            ReflectionContext.Initialize(arguments.ExePath);
+            var exerciseTestDefintion = ExerciseTestDefintionFactory.Get(exercise);
+
+            var defaultTestAssemblyBuilder = new DefaultTestAssemblyBuilder();
+            var nUnitTestAssemblyRunner = new NUnitTestAssemblyRunner(defaultTestAssemblyBuilder);
+
+            var testGroupResults = new TestResult();
 
             foreach (var testDefintion in exerciseTestDefintion.TestDefintions)
             {
-                var defaultTestAssemblyBuilder = new DefaultTestAssemblyBuilder();
-
-                var nUnitTestAssemblyRunner = new NUnitTestAssemblyRunner(defaultTestAssemblyBuilder);
-                nUnitTestAssemblyRunner.Load(Assembly.GetAssembly(testDefintion.GetAssemblyType), new Dictionary<string, string>());
-
-                var testListener = new OwnTestListener();
-
-                nUnitTestAssemblyRunner.Run(testListener, new TestCaseFilter());
-
-                var results = testListener.Results;
-
-                foreach (var result in results)
-                {
-                    if (result.Test.IsSuite) continue;
-                    Console.WriteLine(result.ResultState.Status + " " + result.Message + "");
-                }
+                var testListener = new CustomTestListener(testDefintion.TestGroupName);
+                nUnitTestAssemblyRunner.Load(Assembly.GetAssembly(testDefintion.GetAssemblyIdentifier), new Dictionary<string, string>());
+                nUnitTestAssemblyRunner.Run(testListener, new TestMethodFilter());
+                testGroupResults.AddTestCaseGroupResult(testListener.TestCaseGroupResult);
             }
 
-            return null;
-
-        }
-
-        public class ExerciseTestDefintionFactory
-        {
-            public static ExerciseTestDefintion Get(Exercise exercise)
-            {
-                switch (exercise.ExerciseAbbreviation)
-                {
-                    case "ue1":
-                        return new ExerciseTestDefintion().AddTestDefintion(new ObserverDefintion());
-                }
-
-                throw new Exception("no ExericseDefition Found fo exercise");
-            }
-        }
-
-        public class ExerciseTestDefintion
-        {
-            public List<ITestDefintion> TestDefintions { get; private set; }
-
-            public ExerciseTestDefintion()
-            {
-                TestDefintions = new List<ITestDefintion>();
-            }
-
-            public ExerciseTestDefintion AddTestDefintion(ITestDefintion testDefintion)
-            {
-                TestDefintions.Add(testDefintion);
-                return this;
-            }
+            return testGroupResults;
         }
     }
 }

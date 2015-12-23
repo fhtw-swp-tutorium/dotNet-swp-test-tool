@@ -1,16 +1,17 @@
 ﻿using System;
 using NUnit.Framework.Interfaces;
+using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Filters;
 
 namespace Testrunner.NunitTestRunner
 {
-    public class TestCaseFilter : ValueMatchFilter
+    public class TestMethodFilter : ValueMatchFilter
     {
-        public TestCaseFilter() : base(String.Empty) { }
+        public TestMethodFilter() : base(String.Empty) { }
 
         public override bool Match(ITest test)
         {
-            return !test.IsSuite;
+            return (test is TestMethod);
         }
 
         protected override string ElementName

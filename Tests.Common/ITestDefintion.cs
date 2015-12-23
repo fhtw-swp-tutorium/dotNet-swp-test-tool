@@ -4,6 +4,7 @@ namespace Test.Common
 {
     public interface ITestDefintion
     {
-        Type GetAssemblyType { get; }
+        Type GetAssemblyIdentifier { get; }
+        string TestGroupName { get; }
     }
 }

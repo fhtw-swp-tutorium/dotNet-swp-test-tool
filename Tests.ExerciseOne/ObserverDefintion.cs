@@ -7,9 +7,8 @@ namespace Tests.ExerciseOne
 {
     public class ObserverDefintion : ITestDefintion
     {
-        public Type GetAssemblyType
-        {
-            get { return typeof(ObserverDefintion); }
-        }
+        public Type GetAssemblyIdentifier { get { return typeof(ObserverDefintion); } }
+
+        public string TestGroupName { get { return "Observer"; }}
     }
 }
