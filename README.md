@@ -3,7 +3,7 @@
 
 *This is a console application, which allows students to __automated check the correctness__ of their __implemented GOF pattern__.
 The project was created for use at the [University of Applied Science Vienna](http://www.technikum-wien.at/en/). 
-Since the students are taught in German, the rest of the readme __in German.__*
+Since the students are taught in German, the rest of the readme is __in German.__*
 
 ## Verwendung
 Um den **Automated Pattern Exercise Tester** verwenden zu können laden Sie sich bitte den letzten Release des Tools herunter.
