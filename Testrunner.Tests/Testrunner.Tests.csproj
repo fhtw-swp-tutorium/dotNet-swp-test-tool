@@ -60,7 +60,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Testrunner.Core\Testrunner.Console.csproj">
+    <ProjectReference Include="..\Testrunner.Console\Testrunner.Console.csproj">
       <Project>{836d9d59-403a-4b2a-bdd2-0e985357f6ce}</Project>
       <Name>Testrunner.Console</Name>
     </ProjectReference>

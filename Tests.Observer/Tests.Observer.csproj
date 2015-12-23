@@ -72,7 +72,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Test.Common\TestExecutor.Common.csproj">
+    <ProjectReference Include="..\TestExecutor.Common\TestExecutor.Common.csproj">
       <Project>{264756C2-0D5F-4D61-AF65-131D4E819958}</Project>
       <Name>TestExecutor.Common</Name>
     </ProjectReference>

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testrunner.Console", "Testrunner.Core\Testrunner.Console.csproj", "{836D9D59-403A-4B2A-BDD2-0E985357F6CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testrunner.Console", "Testrunner.Console\Testrunner.Console.csproj", "{836D9D59-403A-4B2A-BDD2-0E985357F6CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Observer", "Tests.ExerciseOne\Tests.Observer.csproj", "{E3E8C0CC-98C0-46D7-B324-6E5A85ACFAA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Observer", "Tests.Observer\Tests.Observer.csproj", "{E3E8C0CC-98C0-46D7-B324-6E5A85ACFAA6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{92C52F66-4068-4996-946D-515CA7374FA4}"
 	ProjectSection(SolutionItems) = preProject
@@ -16,11 +16,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-TestRunner", "0-TestRunne
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-TestExecutor", "1-TestExecutor", "{84DD897A-A663-4DB6-81B5-E9C5C8E972FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExecutor.Nunit", "Testrunner.NunitTestRunner\TestExecutor.Nunit.csproj", "{691D6CB4-4A0D-44A4-9CD4-C0503EAF31E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExecutor.Nunit", "TestExecutor.Nunit\TestExecutor.Nunit.csproj", "{691D6CB4-4A0D-44A4-9CD4-C0503EAF31E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testrunner.Tests", "Testrunner.Tests\Testrunner.Tests.csproj", "{3C8B3BE1-43EC-4428-AD65-2C69238AA145}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExecutor.Common", "Test.Common\TestExecutor.Common.csproj", "{264756C2-0D5F-4D61-AF65-131D4E819958}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExecutor.Common", "TestExecutor.Common\TestExecutor.Common.csproj", "{264756C2-0D5F-4D61-AF65-131D4E819958}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Tests", "2-Tests", "{0B7B4E61-FAA1-41F4-B797-73E615B78F50}"
 EndProject
