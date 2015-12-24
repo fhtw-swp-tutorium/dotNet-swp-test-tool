@@ -1,7 +1,7 @@
 language: csharp
 solution: CheckSwpProject.sln
 before_deploy: 
-  - cd Testrunner.Core/bin/Release/
+  - cd Testrunner.Console/bin/Release/
   - zip -r check-swp-project.zip .
   - ls -l
 deploy:
