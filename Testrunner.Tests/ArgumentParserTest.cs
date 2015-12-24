@@ -4,7 +4,7 @@ using System.IO;
 using System.Reflection;
 using NUnit.Framework;
 using SwpStudentsSpecification.Exercise1.Observer;
-using Testrunner.Core.Services;
+using Testrunner.Console.ArgumentParsing;
 
 namespace Testrunner.Tests
 {

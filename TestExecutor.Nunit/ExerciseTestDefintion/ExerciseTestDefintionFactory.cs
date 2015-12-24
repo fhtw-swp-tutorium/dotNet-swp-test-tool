@@ -1,7 +1,7 @@
 ﻿using System;
 using Tests.ExerciseOne;
 
-namespace TestExecutor.Nunit
+namespace TestExecutor.Nunit.ExerciseTestDefintion
 {
     public class ExerciseTestDefintionFactory
     {

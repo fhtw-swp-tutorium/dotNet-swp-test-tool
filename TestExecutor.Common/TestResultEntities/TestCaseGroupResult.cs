@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Runtime.Remoting;
 
-namespace Testrunner.Common
+namespace TestExecutor.Common.TestResultEntities
 {
 
     public class TestCaseGroupResult

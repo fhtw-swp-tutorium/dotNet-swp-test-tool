@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Test.Common;
+using Tests.Common;
 
-namespace TestExecutor.Nunit
+namespace TestExecutor.Nunit.ExerciseTestDefintion
 {
     public class ExerciseTestDefintion
     {

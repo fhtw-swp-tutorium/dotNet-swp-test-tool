@@ -4,7 +4,7 @@ using System.Linq;
 using Castle.Core.Internal;
 using FluentAssertions;
 using NUnit.Framework;
-using ReflectionContext = Test.Common.ReflectionContext;
+using ReflectionContext = TestExecutor.Common.Reflection.ReflectionContext;
 
 namespace Tests.ExerciseOne.ObserverTest
 {

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Testrunner.Common;
 
-namespace TestExecutor.Nunit
+namespace TestExecutor.Common.TestResultEntities
 {
     public class TestResult
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Test.Common
+namespace Tests.Common
 {
     public interface ITestDefintion
     {

@@ -1,8 +1,7 @@
 using System;
 using System.Linq;
-using Testrunner.Common;
 
-namespace Testrunner.Core.Services
+namespace Testrunner.Console.ArgumentParsing
 {
     public class ArgumentParser
     {

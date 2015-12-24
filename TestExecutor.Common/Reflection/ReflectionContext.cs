@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace Test.Common
+namespace TestExecutor.Common.Reflection
 {
     public static class ReflectionContext
     {

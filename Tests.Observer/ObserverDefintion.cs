@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SwpStudentsSpecification.Exercise1.Observer;
-using Test.Common;
+using Tests.Common;
 
 namespace Tests.ExerciseOne
 {

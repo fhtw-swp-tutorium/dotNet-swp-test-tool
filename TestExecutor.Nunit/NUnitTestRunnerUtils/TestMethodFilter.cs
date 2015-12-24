@@ -3,7 +3,7 @@ using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Filters;
 
-namespace Testrunner.NunitTestRunner
+namespace TestExecutor.Nunit.NUnitTestRunnerUtils
 {
     public class TestMethodFilter : ValueMatchFilter
     {

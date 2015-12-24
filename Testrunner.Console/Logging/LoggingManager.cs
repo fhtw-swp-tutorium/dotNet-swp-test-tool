@@ -2,7 +2,7 @@ using System;
 using System.Configuration;
 using Serilog;
 
-namespace Testrunner.Core
+namespace Testrunner.Console.Logging
 {
     internal class LoggingManager
     {

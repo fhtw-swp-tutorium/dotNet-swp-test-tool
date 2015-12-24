@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Reflection;
 using NUnit.Framework.Api;
-using Testrunner.NunitTestRunner;
-using ReflectionContext = Test.Common.ReflectionContext;
+using TestExecutor.Common.FacadeInterfaces;
+using TestExecutor.Common.TestResultEntities;
+using TestExecutor.Nunit.ExerciseTestDefintion;
+using TestExecutor.Nunit.NUnitTestRunnerUtils;
+using ReflectionContext = TestExecutor.Common.Reflection.ReflectionContext;
 
 namespace TestExecutor.Nunit
 {

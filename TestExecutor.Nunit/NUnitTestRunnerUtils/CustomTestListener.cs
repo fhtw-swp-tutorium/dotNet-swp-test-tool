@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework.Interfaces;
+﻿using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
-using Testrunner.Common;
+using TestExecutor.Common.TestResultEntities;
 
-namespace Testrunner.NunitTestRunner
+namespace TestExecutor.Nunit.NUnitTestRunnerUtils
 {
     public class CustomTestListener : ITestListener
     {

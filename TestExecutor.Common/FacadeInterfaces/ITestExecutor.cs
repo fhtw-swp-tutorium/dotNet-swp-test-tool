@@ -1,7 +1,6 @@
-using TestExecutor.Nunit;
-using Testrunner.Common;
+using TestExecutor.Common.TestResultEntities;
 
-namespace Testrunner.NunitTestRunner
+namespace TestExecutor.Common.FacadeInterfaces
 {
     public interface ITestExecutor
     {
