@@ -19,9 +19,20 @@ namespace Testrunner.Core
                 return;
             }
 
-            var testResult = new NUnitTestRunner().Run(arguments.ExePath, arguments.Exercise.ExerciseAbbreviation);
+            var log= new LoggingManager().GetLogger();
 
-            PrintTestResult(testResult);
+            try
+            {
+                var testResult = new NUnitTestRunner().Run(arguments.ExePath, arguments.Exercise.ExerciseAbbreviation);
+                PrintTestResult(testResult);
+            }
+            catch (Exception e)
+            {
+                log.Error(e, "uncaught exception");
+                Console.WriteLine();
+                ColorLine(ConsoleColor.Red, ConsoleColor.White, "Bei Ausführen der Tests in ein Fehler aufgetreten.");
+                Console.WriteLine(e);
+            }
 
             Console.ReadKey();
         }
@@ -39,7 +50,7 @@ namespace Testrunner.Core
             const string tabulator = "       ";
 
             var assemblyVersion = Assembly.GetExecutingAssembly().GetName().Version;
-            
+
             Console.WriteLine();
             ColorLine(ConsoleColor.DarkCyan, ConsoleColor.Black, "CheckSwpProject (C#) v." + assemblyVersion);
             Console.WriteLine();
