@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using NUnit.Framework;
-using SwpStudentsSpecification.Exercise1.Observer;
+﻿using NUnit.Framework;
 using Testrunner.Console.ArgumentParsing;
 
 namespace Testrunner.Tests
@@ -39,32 +34,6 @@ namespace Testrunner.Tests
             var argumentResult = argumentParser.Parse(agruments);
 
             Assert.IsFalse(argumentResult.IsValid);
-        }
-
-        [Test]
-        public void TestAssembly()
-        {
-            var types = new List<Type>();
-
-            var loadFrom = Assembly.LoadFrom(@"C:\Temp\TimeManagement\TimeManagement\bin\Debug\TimeManagement.exe");
-
-            types.AddRange(loadFrom.GetTypes());
-
-            //loadFrom = Assembly.LoadFrom(@"C:\Temp\TimeManagement\TimeManagement\bin\Debug\SwpStudentsSpecification.dll");
-
-            //types.AddRange(loadFrom.GetTypes());
-
-            loadFrom = Assembly.LoadFrom(@"C:\Temp\TimeManagement\TimeManagement\bin\Debug\Observer.dll");
-
-            types.AddRange(loadFrom.GetTypes());
-
-            var subjectattr = new List<SubjectAttribute>();
-
-            foreach (var type in types)
-            {
-                var subjectAttribute = type.GetCustomAttribute<SubjectAttribute>(false);
-                if(subjectAttribute != null) subjectattr.Add(subjectAttribute);
-            }
         }
     }
 }
