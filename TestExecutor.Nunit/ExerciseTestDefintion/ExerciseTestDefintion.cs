@@ -5,14 +5,14 @@ namespace TestExecutor.Nunit.ExerciseTestDefintion
 {
     public class ExerciseTestDefintion
     {
-        public List<ITestDefintion> TestDefintions { get; private set; }
+        public List<TestDefintionBase> TestDefintions { get; private set; }
 
         public ExerciseTestDefintion()
         {
-            TestDefintions = new List<ITestDefintion>();
+            TestDefintions = new List<TestDefintionBase>();
         }
 
-        public ExerciseTestDefintion AddTestDefintion(ITestDefintion testDefintion)
+        public ExerciseTestDefintion AddTestDefintion(TestDefintionBase testDefintion)
         {
             TestDefintions.Add(testDefintion);
             return this;

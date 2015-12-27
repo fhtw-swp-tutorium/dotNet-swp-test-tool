@@ -1,5 +1,6 @@
 ﻿using System;
 using Tests.ExerciseOne;
+using Tests.Singleton;
 
 namespace TestExecutor.Nunit.ExerciseTestDefintion
 {
@@ -10,7 +11,9 @@ namespace TestExecutor.Nunit.ExerciseTestDefintion
             switch (exercise)
             {
                 case "ue1":
-                    return new ExerciseTestDefintion().AddTestDefintion(new ObserverDefintion());
+                    return new ExerciseTestDefintion()
+                        .AddTestDefintion(new ObserverDefintion())
+                        .AddTestDefintion(new SingletonDefintion());
             }
 
             throw new Exception("no ExericseDefition Found fo exercise");

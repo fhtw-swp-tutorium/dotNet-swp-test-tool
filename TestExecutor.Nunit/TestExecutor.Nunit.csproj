@@ -61,6 +61,10 @@
       <Project>{e3e8c0cc-98c0-46d7-b324-6e5a85acfaa6}</Project>
       <Name>Tests.Observer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tests.Singleton\Tests.Singleton.csproj">
+      <Project>{59C00BEC-0E06-4A30-A84D-1FAB3F026E9A}</Project>
+      <Name>Tests.Singleton</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
