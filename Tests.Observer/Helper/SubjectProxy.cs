@@ -5,7 +5,7 @@ using System.Reflection;
 using Castle.DynamicProxy;
 using FluentAssertions;
 
-namespace Tests.ExerciseOne.ObserverTest
+namespace Tests.ExerciseOne.Helper
 {
     public class SubjectProxy
     {

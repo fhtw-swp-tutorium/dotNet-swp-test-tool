@@ -62,8 +62,8 @@
     <Compile Include="ObserverDefintion.cs" />
     <Compile Include="ObserverTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ObserverTest\SubjectProxy.cs" />
-    <Compile Include="ObserverTest\SubjectProxyFactory.cs" />
+    <Compile Include="Helper\SubjectProxy.cs" />
+    <Compile Include="Helper\SubjectProxyFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

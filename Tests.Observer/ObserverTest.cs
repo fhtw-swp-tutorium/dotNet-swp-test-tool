@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Castle.Core.Internal;
 using FluentAssertions;
 using NUnit.Framework;
+using Tests.ExerciseOne.Helper;
 using ReflectionContext = TestExecutor.Common.Reflection.ReflectionContext;
 
-namespace Tests.ExerciseOne.ObserverTest
+namespace Tests.ExerciseOne
 {
     [TestFixture]
     public class ObserverTest
@@ -40,7 +42,7 @@ namespace Tests.ExerciseOne.ObserverTest
         {
             _subjectProxies.ForEach(sp =>
             {
-                sp.GetUpdateObserverMethod().Should().NotBeNull(because: "UpdateObserver Method has to exist in every subject");
+                AssertionExtensions.Should((MethodInfo) sp.GetUpdateObserverMethod()).NotBeNull(because: "UpdateObserver Method has to exist in every subject");
             });
         }
 
@@ -49,7 +51,7 @@ namespace Tests.ExerciseOne.ObserverTest
         {
             _subjectProxies.ForEach(sp =>
             {
-                sp.GetRegisterObserverMethod().Should().NotBeNull(because: "RegisterObserver Method has to exist in every subject");
+                AssertionExtensions.Should((MethodInfo) sp.GetRegisterObserverMethod()).NotBeNull(because: "RegisterObserver Method has to exist in every subject");
             });
 
         }
@@ -58,7 +60,7 @@ namespace Tests.ExerciseOne.ObserverTest
         {
             _subjectProxies.ForEach(sp =>
             {
-                sp.GetUnRegisterObserverMethod().Should().NotBeNull(because: "UnRegisterObserver Method has to exist in every subject");
+                AssertionExtensions.Should((MethodInfo) sp.GetUnRegisterObserverMethod()).NotBeNull(because: "UnRegisterObserver Method has to exist in every subject");
             });
 
         }
@@ -78,7 +80,7 @@ namespace Tests.ExerciseOne.ObserverTest
                 subject.InvokeUpdateObserversMethod();
 
                 var count = countingObserverProxyWrapper.Interceptor.Count;
-                count.Should().Be(2, because: "observers are updated twice");
+                AssertionExtensions.Should((int) count).Be(2, because: "observers are updated twice");
             }
         }
 
@@ -99,7 +101,7 @@ namespace Tests.ExerciseOne.ObserverTest
                 subject.InvokeUpdateObserversMethod();
 
                 var count = countingObserverProxyWrapper.Interceptor.Count;
-                count.Should().Be(1, "because the observer is deleted after the first update");
+                AssertionExtensions.Should((int) count).Be(1, "because the observer is deleted after the first update");
             }
         }
 
@@ -128,8 +130,8 @@ namespace Tests.ExerciseOne.ObserverTest
 
                 var countOne = firstObserver.Interceptor.Count;
                 var countTwo = secondObserver.Interceptor.Count;
-                countOne.Should().Be(3, "because the first observer is updated three times");
-                countTwo.Should().Be(3, "because the second observer is updated three times");
+                AssertionExtensions.Should((int) countOne).Be(3, "because the first observer is updated three times");
+                AssertionExtensions.Should((int) countTwo).Be(3, "because the second observer is updated three times");
             }
         }
     }

@@ -5,7 +5,7 @@ using System.Reflection;
 using FluentAssertions;
 using SwpStudentsSpecification.Exercise1.Observer;
 
-namespace Tests.ExerciseOne.ObserverTest
+namespace Tests.ExerciseOne.Helper
 {
     public class SubjectProxyFactory
     {
