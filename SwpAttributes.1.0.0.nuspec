@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>SwpAttributes</id>
+        <version>1.0.0</version>
+        <authors>David Leitner</authors>
+        <licenseUrl>https://github.com/duffleit/AutomatedPatternExerciseTester/wiki/StudentsAttributes-Nuget-Package</licenseUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>This a package which is used by students of the FH Technikum Vienna to solve GOF pattern exercices.</description>
+        <summary />
+        <releaseNotes>- added ObserverAttributte</releaseNotes>
+        <copyright />
+        <language />
+    </metadata>
+    <files>
+        <file src="StudentsAttributes.dll" target="content\StudentsAttributes.dll" />
+    </files>
+</package>
