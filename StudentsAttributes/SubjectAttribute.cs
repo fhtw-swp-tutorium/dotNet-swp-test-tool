@@ -1,6 +1,6 @@
 using System;
 
-namespace SwpStudentsSpecification.Exercise1.Observer
+namespace StudentsAttributes
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class SubjectAttribute : Attribute

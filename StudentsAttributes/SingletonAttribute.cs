@@ -1,7 +1,7 @@
-﻿namespace SwpStudentsSpecification.Exercise1.Observer
+﻿namespace StudentsAttributes
 {
     public class SingletonAttribute
     {
-         
+        
     }
 }
