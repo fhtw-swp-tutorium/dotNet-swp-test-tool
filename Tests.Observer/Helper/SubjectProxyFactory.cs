@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using FluentAssertions;
-using SwpStudentsSpecification.Exercise1.Observer;
+using StudentsAttributes;
 
 namespace Tests.ExerciseOne.Helper
 {
