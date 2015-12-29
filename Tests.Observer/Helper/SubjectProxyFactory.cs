@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using FluentAssertions;
 using StudentsAttributes;
+using TestExecutor.Common.Reflection;
 
 namespace Tests.ExerciseOne.Helper
 {
@@ -19,13 +20,11 @@ namespace Tests.ExerciseOne.Helper
         public IEnumerable<SubjectProxy> ObserverProxiesOfAssembly()
         {
             var subjects = new List<SubjectProxy>();
-            var subjectTypes = _types
-                .Where(m => m.GetCustomAttributes(typeof(SubjectAttribute), false).Length > 0)
-                .ToList();
+            var subjectTypes = TypeProvider.GetTypesWithAttribute<SubjectAttribute>().ToList();
 
             foreach (var subject in subjectTypes)
             {
-                var customAttributes = (SubjectAttribute)subject.GetCustomAttribute(typeof(SubjectAttribute));
+                var customAttributes = subject.GetCustomAttribute<SubjectAttribute>();
                 var factoryType = customAttributes.Factory;
 
                 object instance;

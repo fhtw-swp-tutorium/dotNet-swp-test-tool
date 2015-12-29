@@ -6,8 +6,13 @@ using System.Reflection;
 
 namespace TestExecutor.Common.Reflection
 {
-    public static class ReflectionContext
+    public static class TypeProvider
     {
+        public static IReadOnlyCollection<Type> GetTypesWithAttribute<T>() where T : Attribute
+        {
+            return Types.Where(m => m.GetCustomAttributes<T>(false).Any()).ToList();
+        } 
+
         public static IReadOnlyList<Type> Types { get; private set; }
 
         public static void Initialize(string exePath)
@@ -20,7 +25,7 @@ namespace TestExecutor.Common.Reflection
                     file =>
                         (file.ToLower().EndsWith(".dll") ||
                          file.ToLower().EndsWith(".exe") && !file.ToLower().EndsWith(".vshost.exe")) &&
-                        !file.EndsWith("SwpStudentsSpecification.dll"))
+                        !file.EndsWith("StudentsAttributes.dll"))
                 .Select(Assembly.LoadFrom);
 
             Types = assemblies

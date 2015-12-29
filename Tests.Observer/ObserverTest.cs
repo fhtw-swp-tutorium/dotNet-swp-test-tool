@@ -5,8 +5,8 @@ using System.Reflection;
 using Castle.Core.Internal;
 using FluentAssertions;
 using NUnit.Framework;
+using TestExecutor.Common.Reflection;
 using Tests.ExerciseOne.Helper;
-using ReflectionContext = TestExecutor.Common.Reflection.ReflectionContext;
 
 namespace Tests.ExerciseOne
 {
@@ -19,7 +19,7 @@ namespace Tests.ExerciseOne
         [SetUp]
         public void Setup()
         {
-            _types = ReflectionContext.Types;
+            _types = TypeProvider.Types;
 
             var subjectProxyFactory = new SubjectProxyFactory(_types);
             _subjectProxies = subjectProxyFactory.ObserverProxiesOfAssembly();
