@@ -1,6 +1,9 @@
-﻿namespace StudentsAttributes
+﻿using System;
+
+namespace StudentsAttributes
 {
-    public class SingletonAttribute
+    [AttributeUsage(AttributeTargets.Class)]
+    public class SingletonAttribute : Attribute
     {
         
     }
