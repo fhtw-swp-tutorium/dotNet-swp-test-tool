@@ -2,13 +2,13 @@ language: csharp
 solution: CheckSwpProject.sln
 before_deploy: 
   - cd Testrunner.Console/bin/Release/
-  - zip -r check-swp-project.zip .
+  - zip -r SwpTestTool.zip .
   - ls -l
 deploy:
   provider: releases
   api_key:
-    secure: 3PgLvPIpddAsPnJJiSJ/tpKwVsFxgSXEyjPqjBIDwo3VI+Q7puXAB8RIOPDaWuJpRQiAyv4Piv2bTeBhuaHPtqbWSCVQ3p5B0+fVTANABqbWLgHEastNpx/DahF8PE7EqMfSofP7TwP6rHOYoLPE7D0um6trSF9luWIuDkpEOI0ZzgMu+sgqrfp2HySoSuIZIMASvfK5QV1xWSSIkW6r6PNcFJgi2cyf0HOKi68qPQSQ8mB2sNBbLmWKBBAGGrMc6LhteHVQF2FFQt0eIEBxdhrkL69CVJ6Qmw0S1gfvS4a0av45QP8q2MYb90WHu7NqMvuNpjK4h11/ZnJKLxUfiMJNMEe5uP7e5mI5WhQWuwyZ6JwBkTt61TN1NrvAAKrZDwknAM+dXrOAFybhxsqXxQJc95Nu9Xk7wt/lHGu6rPekFwlhLViVot1no5fjx+YW9PWpT2Hc7xHDsj056tSaKr/gehaewE0c/V+z3naErr/r1fhMM57ZPegPzB9ebONSyXa+u+VfRuBadK8N1rYI/QkyEyI24tRqAIG0IlR0ajDKWeS+Z1IQg3Jx6kBQw59VFy9+cDj7dl1u1ZY2vbvR8XwrhrwYwlU2w2Uk/YZ7xIzBaREICU0qRM0TpSc0d1hAUTddSJJble6ZVXCEdDF1FfAiDLDNqgAE1tuBSkREk0E=
-  file: check-swp-project.zip
+    secure: zQ33TuK9joGOM5wnj4VC8wYNw64yjBoaCpVjtxtfIqNWSNBoauCMu7u7+8BG1/eV2HSSDFaWrNclfD+vc+hUJIG8QpGMZgFcLiL52e4dUCkaFbkc3OY3l6NByPWolaFT6q+7hoP5jr/SMqAssFR5oKuuMqEQaFl7Tz+eZ4chQ8v8v/8RwAuPPpKeNqoYX18cUdgqUEoeNPfKFZ4JS8j7mLEoEilsjmBJV+sxIeVjLXYwma9PGB7sll1mVz7IKd9gilaPBRg2eNsOl1E9JY2/mV9VZWc7fER9wJtg/MlqB9M4NJpY5u6EORrXYiC8ayhmErTGkqFLvE1sfEFIAJdROqRoo0OuQO0TYVXjvPH3IllL+AzjfwVPuVixtlURW3CSock11CxaRkSz5jgmnhFgUCRnQObdYNi0hnB4PlRXJncgfnCAP4Uj0zNn9fHdfiC85g7JOYdotroncewxUB53ilNvsPqd0r2UPmj/GDBU5Ha0K4/Qzb2AKtx0ZLOSeFxSPRFn0UYsredfLCwoowGwM0L+VW+5WiWvZgW22iPDWS/2rlRyJRMpoMwcPOwXLtR5XKoLkEKNDrhk6mSQNIWr8ZIoqCfPLGZiTs/FMwChPix6jMcSGYkzkTnSzlSBMCDpUY/pfawBlpMPekY4USUjrNXffWTUTKuP0+/q269Lexg=
+  file: SwpTestTool.zip
   on:
     repo: duffleit/AutomatedPatternExerciseTester
     tags: true
