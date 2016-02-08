@@ -48,8 +48,10 @@ namespace Tests.Singleton.Driver
         private List<PropertyInfo> SingletonInstanceProperty()
         {
             return _singleton
-                .GetProperties(BindingFlags.Static)
+                .GetProperties()
+                .Where(p => p.GetMethod.IsStatic)
                 .Where(p => p.CanRead)
+                .Where(p => !p.CanWrite)
                 .Where(p => p.PropertyType == _singleton)
                 .ToList();
         }

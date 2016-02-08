@@ -2,8 +2,8 @@
 
 namespace Tests.ExerciseOne
 {
-    public class ObserverDefintion : TestDefintionBase
+    public class ObserverDefinition : TestDefintionBase
     {
-        public override string TestGroupName { get { return "Observer"; }}
+        public ObserverDefinition() :base("Observer") { }
     }
 }
