@@ -1,9 +1,10 @@
 using System;
 using System.Linq;
+using Testrunner.Common.Arguments;
 
 namespace Testrunner.Console.ArgumentParsing
 {
-    public class ArgumentParser
+    public class ArgumentParser : IArgumentParser
     {
         public Arguments Parse(string[] args)
         {

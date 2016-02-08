@@ -1,4 +1,4 @@
-namespace Testrunner.Console.ArgumentParsing
+namespace Testrunner.Common.Arguments
 {
     public class Arguments
     {

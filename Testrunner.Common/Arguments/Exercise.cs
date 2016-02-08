@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Testrunner.Console.ArgumentParsing
+namespace Testrunner.Common.Arguments
 {
     public class Exercise
     {
