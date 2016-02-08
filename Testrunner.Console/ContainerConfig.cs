@@ -3,7 +3,7 @@ using System.Configuration;
 using Autofac;
 using Common;
 using Serilog;
-using TestExecutor.Common.FacadeInterfaces;
+using TestExecutor.Common;
 using TestExecutor.Nunit;
 using Testrunner.Common.Arguments;
 using Testrunner.Console.ArgumentParsing;

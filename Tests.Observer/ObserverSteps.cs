@@ -1,51 +1,68 @@
-﻿using TechTalk.SpecFlow;
+﻿using System.Collections.Generic;
+using FluentAssertions;
+using NUnit.Framework;
+using TechTalk.SpecFlow;
+using Tests.ExerciseOne.Driver;
 
 namespace Tests.ExerciseOne
 {
     [Binding]
     class ObserverSteps
     {
-        [Given(@"Zugriff auf alle verfügbaren Subjekte")]
-        public void AngenommenZugriffAufAlleVerfugbarenSubjekte()
+        private readonly ObserverDriver _observerContext;
+
+        public ObserverSteps(ObserverDriver observerContext)
         {
-            ////C:\Work\FH\dotNet-sampleSolution\SampleSolution\SampleSolution\bin\Debug\SampleSolution.exe
+            _observerContext = observerContext;
         }
 
-        [Then(@"existiert mindestens ein Subjekt")]
-        public void DannExistiertMindestensEinSubjekt()
+        [Given(@"mindestens ein Subjekte")]
+        public void AngenommenMindestensEinSubjekte()
         {
-            ////C:\Work\FH\dotNet-sampleSolution\SampleSolution\SampleSolution\bin\Debug\SampleSolution.exe
+            var subjectProxies = _observerContext.Subjects;
+            subjectProxies.Count.Should().BeGreaterThan(0);
         }
 
-        [Then(@"sollen alle Subjekte eine Reigster Methode haben")]
-        public void DannSollenAlleSubjekteEineReigsterMethodeHaben()
+        [Then(@"haben Subjekte eine passende Register Methode")]
+        public void DannHabenSubjekteEineReigsterMethode()
         {
-            //C:\Work\FH\dotNet-sampleSolution\SampleSolution\SampleSolution\bin\Debug\SampleSolution.exe
+            var subjectProxies = _observerContext.Subjects;
+            subjectProxies.ForEach(sp => sp.HasAppropriateAddMethod.Should().BeTrue());
         }
 
-        [Then(@"sollen alle Subjekte eine Update Methode haben")]
-        public void DannSollenAlleSubjekteEineUpdateMethodeHaben()
+        [Then(@"haben Subjekte eine passende Update Methode")]
+        public void DannHabenSubjekteEineUpdateMethode()
         {
-            //C:\Work\FH\dotNet-sampleSolution\SampleSolution\SampleSolution\bin\Debug\SampleSolution.exe
+            var subjectProxies = _observerContext.Subjects;
+            subjectProxies.ForEach(sp => sp.HasAppropriateUpdateMethod.Should().BeTrue());
         }
 
-        [When(@"sich bei jedem Subjekt ein Observer mit den Namen ""(.*)"" registiert")]
-        public void WennSichBeiJedemSubjektEinObserverMitDenNamenRegistiert(string p0)
+        [Then(@"haben Subjekte eine passende Unregister Methode")]
+        public void DannHabenSubjekteEineUnregisterMethode()
         {
-            //C:\Work\FH\dotNet-sampleSolution\SampleSolution\SampleSolution\bin\Debug\SampleSolution.exe
+            var subjectProxies = _observerContext.Subjects;
+            subjectProxies.ForEach(sp => sp.HasAppropriateRemvoeMethod.Should().BeTrue());
         }
 
-        [When(@"alle Subjekte die Update Methode Aufrufen")]
-        public void WennAlleSubjekteDieUpdateMethodeAufrufen()
+        [When(@"sich bei allen Subjekten je ein Observer mit den Namen ""(.*)"" registiert")]
+        public void WennSichBeiAllenSubjektenJeEinObserverMitDenNamenRegistiert(string name)
         {
-            //C:\Work\FH\dotNet-sampleSolution\SampleSolution\SampleSolution\bin\Debug\SampleSolution.exe
+            var subjectProxies = _observerContext.Subjects;
+            subjectProxies.ForEach(s => s.RegisterObserver(name));
         }
 
-        [Then(@"sollen ""(.*)"" ""(.*)"" mal aufgerufen worden sein")]
-        public void DannSollenMalAufgerufenWordenSein(string p0, int p1)
+        [When(@"Subjekte die Update Methode Aufrufen")]
+        public void WennSubjekteDieUpdateMethodeAufrufen()
         {
-            //C:\Work\FH\dotNet-sampleSolution\SampleSolution\SampleSolution\bin\Debug\SampleSolution.exe
+            var subjectProxies = _observerContext.Subjects;
+            subjectProxies.ForEach(sp => sp.UpdateObserver());
         }
 
+        [Then(@"sollen alle Observer ""(.*)"" ""(.*)"" mal aufgerufen worden sein")]
+        public void DannSollenAlleObserverMalAufgerufenWordenSein(string name, int invocations)
+        {
+            var subjectProxies = _observerContext.Subjects;
+            subjectProxies.ForEach(sp => sp.GetObserver(name).Interceptor.Count.Should().Be(invocations));
+        }
     }
 }

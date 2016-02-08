@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -6,18 +6,18 @@ using FluentAssertions;
 using StudentsAttributes;
 using TestExecutor.Common.Reflection;
 
-namespace Tests.ExerciseOne.Helper
+namespace Tests.ExerciseOne.Driver
 {
-    public class SubjectProxyFactory
+    public class ObserverDriver
     {
-        private readonly List<Type> _types;
+        private List<SubjectProxy> _subjects;
 
-        public SubjectProxyFactory(IEnumerable<Type> types)
+        public List<SubjectProxy> Subjects
         {
-            _types = types.ToList();
+            get { return _subjects ?? (_subjects = GetSubjects()); }
         }
 
-        public IEnumerable<SubjectProxy> ObserverProxiesOfAssembly()
+        private List<SubjectProxy> GetSubjects()
         {
             var subjects = new List<SubjectProxy>();
             var subjectTypes = TypeProvider.GetTypesWithAttribute<SubjectAttribute>().ToList();

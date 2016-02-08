@@ -36,7 +36,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FacadeInterfaces\ITestExecutor.cs" />
+    <Compile Include="ITestExecutor.cs" />
     <Compile Include="SwpTestToolException.cs" />
     <Compile Include="Reflection\TypeProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

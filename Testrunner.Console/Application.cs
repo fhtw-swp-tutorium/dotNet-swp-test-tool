@@ -3,7 +3,6 @@ using System.Linq;
 using System.Reflection;
 using Common;
 using TestExecutor.Common;
-using TestExecutor.Common.FacadeInterfaces;
 using TestExecutor.Common.TestResultEntities;
 using Testrunner.Common.Arguments;
 using Testrunner.Console.Logging;

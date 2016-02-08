@@ -1,6 +1,6 @@
 using TestExecutor.Common.TestResultEntities;
 
-namespace TestExecutor.Common.FacadeInterfaces
+namespace TestExecutor.Common
 {
     public interface ITestExecutor
     {

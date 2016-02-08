@@ -10,16 +10,6 @@ namespace Tests.Singleton
     [TestFixture]
     public class SingletonTest
     {
-        private IList<SingletonDriver> _singletonDrivers;
-
-        [SetUp]
-        public void TestSetup()
-        {
-            _singletonDrivers = 
-                TypeProvider.GetTypesWithAttribute<SingletonAttribute>()
-                .Select(t => new SingletonDriver(t)).ToList();
-        }
-
         [Test]
         public void AtLeastOneSingletonShouldExists()
         {

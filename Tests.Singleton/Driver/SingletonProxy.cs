@@ -2,20 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using FluentAssertions.Common;
-using StudentsAttributes;
 
-namespace Tests.Singleton
+namespace Tests.Singleton.Driver
 {
-    public class SingletonDriver
-    {
+    public class SingletonProxy{
+
         private readonly Type _singleton;
 
-        public SingletonDriver(Type singleton)
+        public SingletonProxy(Type singleton)
         {
-            if (!singleton.HasAttribute<SingletonAttribute>())
-                throw new ArgumentException("singleton is not a singleton annotated class");
-
             _singleton = singleton;
         }
 
@@ -42,7 +37,8 @@ namespace Tests.Singleton
 
         private List<MethodInfo> SingletonInstanceMethod()
         {
-            return _singleton.GetMethods(BindingFlags.Static)
+            return _singleton
+                .GetMethods(BindingFlags.Static)
                 .Where(m => m.IsPublic)
                 .Where(m => m.GetParameters().Length == 0)
                 .Where(m => m.ReturnType == _singleton)
