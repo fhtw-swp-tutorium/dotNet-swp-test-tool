@@ -18,7 +18,7 @@ namespace Tests.Singleton.Driver
         {
             return
                 TypeProvider.GetTypesWithAttribute<SingletonAttribute>()
-                    .Select(t => new SingletonDriver(t)).ToList();
+                    .Select(t => new SingletonProxy(t)).ToList();
         }
     }
 }
