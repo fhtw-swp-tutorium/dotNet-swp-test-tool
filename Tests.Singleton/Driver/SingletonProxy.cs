@@ -5,7 +5,8 @@ using System.Reflection;
 
 namespace Tests.Singleton.Driver
 {
-    public class SingletonProxy{
+    public class SingletonProxy
+    {
 
         private readonly Type _singleton;
 
@@ -20,7 +21,7 @@ namespace Tests.Singleton.Driver
                 return SingletonInstanceProperty().First().GetValue(null);
 
             if (SingletonInstanceMethod().Count > 0)
-                return SingletonInstanceMethod().First().Invoke(null, new object[]{});
+                return SingletonInstanceMethod().First().Invoke(null, new object[] { });
 
             return null;
         }
@@ -38,7 +39,7 @@ namespace Tests.Singleton.Driver
         private List<MethodInfo> SingletonInstanceMethod()
         {
             return _singleton
-                .GetMethods(BindingFlags.Static)
+                .GetMethods(BindingFlags.Public | BindingFlags.Static)
                 .Where(m => m.IsPublic)
                 .Where(m => m.GetParameters().Length == 0)
                 .Where(m => m.ReturnType == _singleton)
@@ -48,7 +49,7 @@ namespace Tests.Singleton.Driver
         private List<PropertyInfo> SingletonInstanceProperty()
         {
             return _singleton
-                .GetProperties(BindingFlags.Static)
+                .GetProperties(BindingFlags.Public | BindingFlags.Static)
                 .Where(p => p.CanRead)
                 .Where(p => p.PropertyType == _singleton)
                 .ToList();

@@ -17,7 +17,7 @@ namespace Tests.Singleton
         [Given(@"mindestens ein Singleton")]
         public void AngenommenMindestensEinSingleton()
         {
-            _singletonDriver.Singletons.Count.Should().BeGreaterThan(1);
+            _singletonDriver.Singletons.Count.Should().BeGreaterThan(0);
         }
 
         [Then(@"bieten Singletons eine passende Methode zur Instanzierung")]
