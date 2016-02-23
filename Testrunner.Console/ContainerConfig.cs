@@ -27,24 +27,28 @@ namespace Testrunner.Console
 
         private static void ConfigureLogging(ContainerBuilder containerBuilder)
         {
-            var endpoint = new Uri(ConfigurationManager.AppSettings.Get("DocumentDbEndpoint"));
-            var seed = ConfigurationManager.AppSettings.Get("DocumentDbSeed");
+            //var endpoint = new Uri(ConfigurationManager.AppSettings.Get("DocumentDbEndpoint"));
+            //var seed = ConfigurationManager.AppSettings.Get("DocumentDbSeed");
 
-            ILogger seriLogger;
+            //ILogger seriLogger;
 
-            try
-            {
-                seriLogger = new LoggerConfiguration()
-                    .WriteTo.AzureDocumentDB(endpoint, seed)
+            //try
+            //{
+            //    seriLogger = new LoggerConfiguration()
+            //        .WriteTo.AzureDocumentDB(endpoint, seed)
+            //        .WriteTo.RollingFile("CheckSwpProject.log")
+            //        .CreateLogger();
+            //}
+            //catch (Exception)
+            //{
+            //    seriLogger = new LoggerConfiguration()
+            //        .WriteTo.RollingFile("CheckSwpProject.log")
+            //        .CreateLogger();
+            //}
+
+            var seriLogger = new LoggerConfiguration()
                     .WriteTo.RollingFile("CheckSwpProject.log")
                     .CreateLogger();
-            }
-            catch (Exception)
-            {
-                seriLogger = new LoggerConfiguration()
-                    .WriteTo.RollingFile("CheckSwpProject.log")
-                    .CreateLogger();
-            }
 
             var consoleLogger = new ConsoleLogger(seriLogger);
 
