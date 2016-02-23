@@ -1,9 +1,10 @@
-﻿Funktionalität: Singleton
+﻿#language: de
+
+Funktionalität: Singleton
 
 Szenario: Es existiert mindestens ein Singleton
 	Gegeben sei mindestens ein Singleton
 
-//Singleton: statisch, public, keine Paramter, returnType ist Singleton, 
 Szenario: Singletons haben zum Instanzzugriff ein passendes Property oder eine passende Methode
 	Gegeben sei mindestens ein Singleton
 	Dann bieten Singletons eine passende Methode zur Instanzierung
