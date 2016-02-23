@@ -71,7 +71,6 @@
     <Compile Include="Driver\SingletonDriver.cs" />
     <Compile Include="Driver\SingletonProxy.cs" />
     <Compile Include="SingletonSteps.cs" />
-    <Compile Include="SingletonTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestExecutor.Common\TestExecutor.Common.csproj">
