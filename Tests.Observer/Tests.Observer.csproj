@@ -74,19 +74,22 @@
     <Compile Include="Driver\CountingInterceptor.cs" />
     <Compile Include="Driver\ObserverProxy.cs" />
     <Compile Include="Driver\ObserverDriver.cs" />
+    <Compile Include="Observer.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Observer.feature</DependentUpon>
+    </Compile>
     <Compile Include="ObserverDefintion.cs" />
     <Compile Include="ObserverSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Driver\SubjectProxy.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\pattern-specifications\Observer.feature">
-      <Link>Observer.feature</Link>
-      <OutputFilePath>..\Tests.Observer\</OutputFilePath>
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>..\Tests.Observer\Observer.feature.cs</LastGenOutput>
-    </None>
     <None Include="App.config" />
+    <None Include="Observer.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Observer.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

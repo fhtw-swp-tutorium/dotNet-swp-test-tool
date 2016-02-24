@@ -1,18 +1,17 @@
-﻿#language: de
+#language: de
+#noinspection SpellCheckingInspection
 
 Funktionalität: Singleton
 
-Szenario: Es existiert mindestens ein Singleton
-	Gegeben sei mindestens ein Singleton
+  Grundlage:
+    Gegeben sei eine Liste von Singletons
+    Dann darf diese Liste nicht leer sein
 
-Szenario: Singletons haben zum Instanzzugriff ein passendes Property oder eine passende Methode
-	Gegeben sei mindestens ein Singleton
-	Dann bieten Singletons eine passende Methode zur Instanzierung
+  Szenario: Alle Singletons sollen eine Methode zum Zugriff auf die Instanz haben
+    Dann sollen alle Singletons eine Methode zum Zugriff auf die Instanz haben
 
-Szenario: Singletons haben privaten Konstruktur
-	Gegeben sei mindestens ein Singleton
-	Dann haben singletons einen privaten Konstruktor
+  Szenario: Alle Singletons sollen einen privaten Konstruktor haben
+    Dann sollen alle Singletons einen privaten Konstruktor haben
 
-Szenario: Singletons soll immer dieselbe Instanz zurückgeben
-	Gegeben sei mindestens ein Singleton
-	Dann geben singletons immer dieselbe Instanz zurück
+  Szenario: Alle Singletons sollen immer dieselbe Instanz zurückgeben
+    Dann sollen alle Singletons immer dieselbe Instanz zurückgeben

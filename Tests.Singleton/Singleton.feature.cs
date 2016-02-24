@@ -63,62 +63,57 @@ namespace Tests.Singleton
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Es existiert mindestens ein Singleton")]
-        public virtual void EsExistiertMindestensEinSingleton()
+        public virtual void FeatureBackground()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Es existiert mindestens ein Singleton", ((string[])(null)));
-#line 5
-this.ScenarioSetup(scenarioInfo);
 #line 6
- testRunner.Given("mindestens ein Singleton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Singletons haben zum Instanzzugriff ein passendes Property oder eine passende Met" +
-            "hode")]
-        public virtual void SingletonsHabenZumInstanzzugriffEinPassendesPropertyOderEinePassendeMethode()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Singletons haben zum Instanzzugriff ein passendes Property oder eine passende Met" +
-                    "hode", ((string[])(null)));
+  #line 7
+    testRunner.Given("eine Liste von Singletons", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
 #line 8
-this.ScenarioSetup(scenarioInfo);
-#line 9
- testRunner.Given("mindestens ein Singleton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
+    testRunner.Then("darf diese Liste nicht leer sein", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
+#line hidden
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Alle Singletons sollen eine Methode zum Zugriff auf die Instanz haben")]
+        public virtual void AlleSingletonsSollenEineMethodeZumZugriffAufDieInstanzHaben()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Alle Singletons sollen eine Methode zum Zugriff auf die Instanz haben", ((string[])(null)));
 #line 10
- testRunner.Then("bieten Singletons eine passende Methode zur Instanzierung", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
+  this.ScenarioSetup(scenarioInfo);
+#line 6
+  this.FeatureBackground();
+#line 11
+    testRunner.Then("sollen alle Singletons eine Methode zum Zugriff auf die Instanz haben", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Singletons haben privaten Konstruktur")]
-        public virtual void SingletonsHabenPrivatenKonstruktur()
+        [NUnit.Framework.DescriptionAttribute("Alle Singletons sollen einen privaten Konstruktor haben")]
+        public virtual void AlleSingletonsSollenEinenPrivatenKonstruktorHaben()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Singletons haben privaten Konstruktur", ((string[])(null)));
-#line 12
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Alle Singletons sollen einen privaten Konstruktor haben", ((string[])(null)));
 #line 13
- testRunner.Given("mindestens ein Singleton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
+  this.ScenarioSetup(scenarioInfo);
+#line 6
+  this.FeatureBackground();
 #line 14
- testRunner.Then("haben singletons einen privaten Konstruktor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
+    testRunner.Then("sollen alle Singletons einen privaten Konstruktor haben", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Singletons soll immer dieselbe Instanz zurückgeben")]
-        public virtual void SingletonsSollImmerDieselbeInstanzZuruckgeben()
+        [NUnit.Framework.DescriptionAttribute("Alle Singletons sollen immer dieselbe Instanz zurückgeben")]
+        public virtual void AlleSingletonsSollenImmerDieselbeInstanzZuruckgeben()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Singletons soll immer dieselbe Instanz zurückgeben", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Alle Singletons sollen immer dieselbe Instanz zurückgeben", ((string[])(null)));
 #line 16
-this.ScenarioSetup(scenarioInfo);
+  this.ScenarioSetup(scenarioInfo);
+#line 6
+  this.FeatureBackground();
 #line 17
- testRunner.Given("mindestens ein Singleton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
-#line 18
- testRunner.Then("geben singletons immer dieselbe Instanz zurück", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
+    testRunner.Then("sollen alle Singletons immer dieselbe Instanz zurückgeben", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
 #line hidden
             this.ScenarioCleanup();
         }
