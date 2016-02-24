@@ -62,12 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\pattern-specifications\..\Tests.Observer\Observer.feature.cs">
-      <Link>Observer.feature.cs</Link>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Observer.feature</DependentUpon>
-    </Compile>
     <Compile Include="..\_solutionItems\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
