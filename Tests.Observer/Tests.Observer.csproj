@@ -62,7 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\pattern-specifications\Observer.feature.cs">
+    <Compile Include="..\pattern-specifications\..\Tests.Observer\Observer.feature.cs">
       <Link>Observer.feature.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -82,8 +82,9 @@
   <ItemGroup>
     <None Include="..\pattern-specifications\Observer.feature">
       <Link>Observer.feature</Link>
+      <OutputFilePath>..\Tests.Observer\</OutputFilePath>
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Observer.feature.cs</LastGenOutput>
+      <LastGenOutput>..\Tests.Observer\Observer.feature.cs</LastGenOutput>
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
