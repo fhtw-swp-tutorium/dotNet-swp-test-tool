@@ -59,6 +59,10 @@
       <Project>{264756C2-0D5F-4D61-AF65-131D4E819958}</Project>
       <Name>TestExecutor.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tests.Command\Tests.Command.csproj">
+      <Project>{3CC5C073-090B-467E-8E62-A3F4B8B50797}</Project>
+      <Name>Tests.Command</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tests.Common\Tests.Common.csproj">
       <Project>{EFACB3EB-4EF6-4042-AF94-9AA5782268F9}</Project>
       <Name>Tests.Common</Name>
