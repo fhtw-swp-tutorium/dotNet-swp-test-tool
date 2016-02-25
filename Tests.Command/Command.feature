@@ -13,8 +13,8 @@ Funktionalität: Kommando
 
     Szenario: Jede Methode mit dem Attribut "InvokeCommand" darf genau ein Interface als Parameter nehmen
       Wenn ich in jeder Klasse nach einer Methode mit dem Attribut "InvokeCommand" suche
-      Dann darf jede Methode nur einen Parameter haben
-      Und der erste Parameter muss ein Interface sein
+      Dann muss jede Methode genau einen Parameter haben
+      Und muss jeder Parameter ein Interface sein
       
     Szenario: Jedes Kommando-Interface muss eine Implementierung haben
       Wenn ich in jeder Klasse nach einer Methode mit dem Attribut "InvokeCommand" suche
@@ -22,6 +22,7 @@ Funktionalität: Kommando
       
     Szenario: Kommando soll ausgeführt werden, wenn es an Invoker übergeben wird
       Wenn ich in jeder Klasse nach einer Methode mit dem Attribut "InvokeCommand" suche
+	  #Preconditions? (alle von oben?)
       Und ich eine Instanz des Invokers erzeuge
       Und ich eine dynamische Instanz des Kommandos erzeuge
       Und dieses Kommando an den Invoker übergebe
