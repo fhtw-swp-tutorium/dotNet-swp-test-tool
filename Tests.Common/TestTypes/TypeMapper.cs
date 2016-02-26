@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using DotNetAttributes;
 
-namespace Tests.Common
+namespace Tests.Common.TestTypes
 {
     public static class TypeMapper
     {
