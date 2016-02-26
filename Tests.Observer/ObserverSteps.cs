@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using FluentAssertions;
-using NUnit.Framework;
+﻿using FluentAssertions;
 using TechTalk.SpecFlow;
-using Tests.ExerciseOne.Driver;
+using Tests.Observer.Driver;
 
-namespace Tests.ExerciseOne
+namespace Tests.Observer
 {
     [Binding]
     class ObserverSteps

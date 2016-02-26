@@ -7,8 +7,8 @@
     <ProjectGuid>{E3E8C0CC-98C0-46D7-B324-6E5A85ACFAA6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tests.ExerciseOne</RootNamespace>
-    <AssemblyName>Tests.ExerciseOne</AssemblyName>
+    <RootNamespace>Tests.Observer</RootNamespace>
+    <AssemblyName>Tests.Observer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>

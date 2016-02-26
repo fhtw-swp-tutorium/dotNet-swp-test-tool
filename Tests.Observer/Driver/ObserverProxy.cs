@@ -2,7 +2,7 @@ using System;
 using Castle.DynamicProxy;
 using Tests.Common;
 
-namespace Tests.ExerciseOne.Driver
+namespace Tests.Observer.Driver
 {
     public class ObserverProxy
     {

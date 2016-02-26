@@ -6,7 +6,7 @@ using DotNetAttributes;
 using FluentAssertions;
 using TestExecutor.Common.Reflection;
 
-namespace Tests.ExerciseOne.Driver
+namespace Tests.Observer.Driver
 {
     public class ObserverDriver
     {
