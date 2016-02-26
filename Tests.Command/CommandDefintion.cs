@@ -1,6 +1,6 @@
 ﻿using Tests.Common;
 
-namespace Tests.ExerciseOne
+namespace Tests.Command
 {
     public class CommandDefintion : TestDefintionBase
     {

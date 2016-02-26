@@ -1,5 +1,6 @@
 ﻿using System;
-using Tests.ExerciseOne;
+using Tests.Command;
+using Tests.Observer;
 using Tests.Singleton;
 
 namespace TestExecutor.Nunit.ExerciseTestDefintion
