@@ -5,17 +5,16 @@ using System.Reflection;
 using FluentAssertions;
 using TestExecutor.Common.Reflection;
 
-namespace Tests.Common
+namespace Tests.Common.TestTypes
 {
-    public class TestTypeContext
+    public class TypeContext
     {
         public IDictionary<Type, List<MethodInfo>> ClassMethodList { get; } = new Dictionary<Type, List<MethodInfo>>();
 
-        public TestTypeContext SetClassList(string attributeName)
+        public TypeContext SetClassList(Type attributeType)
         {
             ClassMethodList.Clear();
 
-            var attributeType = TypeMapper.GetType(attributeName);
             var classes = TypeProvider.GetTypesWithAttribute(attributeType);
 
             foreach (var cls in classes)
@@ -26,21 +25,19 @@ namespace Tests.Common
             return this;
         }
 
-        public TestTypeContext OnlyMethodsWithAttribute(string attributeName)
+        public TypeContext OnlyMethodsWithAttribute(Type attributeType)
         {
-            var attributeType = TypeMapper.GetType(attributeName);
-
             for (var i = 0; i < ClassMethodList.Count; i++)
             {
                 var cls = ClassMethodList.ElementAt(i);
                 ClassMethodList[cls.Key] =
-                    new List<MethodInfo>(cls.Value.Where(m => m.Attributes.GetType() == attributeType).ToList());
+                    new List<MethodInfo>(cls.Value.Where(m => m.CustomAttributes.Any(a => a.AttributeType == attributeType))).ToList();
             }
 
             return this;
         }
 
-        public TestTypeContext OnlyMethodsWithExactParameterCount(int numberOfParameters)
+        public TypeContext OnlyMethodsWithExactParameterCount(int numberOfParameters)
         {
             for (var i = 0; i < ClassMethodList.Count; i++)
             {
