@@ -52,6 +52,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\.solutionItems\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Proxy\CountingInterceptor.cs" />
     <Compile Include="Proxy\ObjectFactory.cs" />
     <Compile Include="TestTypes\CommonAssertions.cs" />
