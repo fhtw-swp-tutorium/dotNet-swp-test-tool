@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Proxy\CountingInterceptor.cs" />
+    <Compile Include="Proxy\ObjectFactory.cs" />
     <Compile Include="TestTypes\CommonAssertions.cs" />
     <Compile Include="TestTypes\TypeContext.cs" />
     <Compile Include="TestDefintionBase.cs" />

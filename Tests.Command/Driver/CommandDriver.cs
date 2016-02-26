@@ -5,6 +5,7 @@ using System.Reflection;
 using DotNetAttributes;
 using FluentAssertions;
 using Tests.Common;
+using Tests.Common.Proxy;
 using Tests.Common.TestTypes;
 
 namespace Tests.Command.Driver
@@ -31,29 +32,9 @@ namespace Tests.Command.Driver
         public void GenerateInvoker(TypeContext typeContext)
         {
             var types = typeContext.ClassMethodList.Keys;
-            var invokers = new List<object>();
-            foreach (var invoker in types)
-            {
-                var customAttributes = invoker.GetCustomAttribute<InvokerAttribute>();
-                var factoryType = customAttributes.Factory;
+            var invokerObjects = new ObjectFactory().GenerateObjects(typeof (InvokerAttribute), types);
 
-                object instance;
-
-                if (factoryType != null)
-                {
-                    var factory = Activator.CreateInstance(factoryType);
-                    var createMethod = factory.GetType().Methods().First(m => m.IsPublic && !m.GetParameters().Any() && m.ReturnType == invoker);
-                    instance = createMethod.Invoke(factory, new object[] { });
-                }
-                else
-                {
-                    instance = Activator.CreateInstance(invoker);
-                }
-
-                invokers.Add(instance);
-            }
-
-            _invoker = invokers.Select(InvokerProxy.Create).ToList();
+            _invoker = invokerObjects.Select(InvokerProxy.Create).ToList();
         }
 
         public void ExecuteCommandsOnInvokers()
