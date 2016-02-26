@@ -16,7 +16,7 @@ namespace Tests.Common
                 {"Subjekt", typeof (SubjectAttribute)},
                 {"Singleton", typeof (SingletonAttribute)},
                 {"Invoker", typeof (InvokerAttribute)},
-                {"InvokerCommand", typeof (InvokeCommandAttribute)}
+                {"InvokeCommand", typeof (InvokeCommandAttribute)}
             };
 
             TypeMap = new ReadOnlyDictionary<string, Type>(mappings);
