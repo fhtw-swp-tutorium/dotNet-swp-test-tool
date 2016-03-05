@@ -49,7 +49,7 @@ namespace Tests.Command
             _typeContext.EveryClassMethodHasOneParamter().Should().BeTrue();
         }
 
-        [Then(@"muss jeder Parameter ein Interface sein")]
+        [Then(@"jeder Parameter muss ein Interface sein")]
         public void DannDerErsteParameterMussEinInterfaceSein()
         {
             _typeContext.EveryClassMethodsParameterIsAnInterface().Should().BeTrue();

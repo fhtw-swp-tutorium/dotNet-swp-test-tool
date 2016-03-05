@@ -15,3 +15,4 @@ Funktionalität: Singleton
 
   Szenario: Alle Singletons sollen immer dieselbe Instanz zurückgeben
     Dann sollen alle Singletons immer dieselbe Instanz zurückgeben
+    Und diese darf nicht null sein
