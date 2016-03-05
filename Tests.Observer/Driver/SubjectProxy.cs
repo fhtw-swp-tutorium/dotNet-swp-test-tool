@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using FluentAssertions;
 
-namespace Tests.ExerciseOne.Driver
+namespace Tests.Observer.Driver
 {
     public class SubjectProxy
     {

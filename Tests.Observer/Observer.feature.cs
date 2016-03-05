@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Tests.ExerciseOne
+namespace Tests.Observer
 {
     using TechTalk.SpecFlow;
     
@@ -31,7 +31,7 @@ namespace Tests.ExerciseOne
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("de-DE"), "Observer", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("de"), "Observer", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -63,116 +63,103 @@ namespace Tests.ExerciseOne
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Es existiert mindestens ein Subjekt")]
-        public virtual void EsExistiertMindestensEinSubjekt()
+        public virtual void FeatureBackground()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Es existiert mindestens ein Subjekt", ((string[])(null)));
-#line 3
-this.ScenarioSetup(scenarioInfo);
-#line 4
- testRunner.Given("mindestens ein Subjekte", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Subjekte haben eine Register Methode, welche als einzigen Paramter ein Interface " +
-            "entgegennimmt")]
-        public virtual void SubjekteHabenEineRegisterMethodeWelcheAlsEinzigenParamterEinInterfaceEntgegennimmt()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Subjekte haben eine Register Methode, welche als einzigen Paramter ein Interface " +
-                    "entgegennimmt", ((string[])(null)));
 #line 6
-this.ScenarioSetup(scenarioInfo);
-#line 7
- testRunner.Given("mindestens ein Subjekte", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
+  #line 7
+    testRunner.Given("eine Liste von Subjekten", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
 #line 8
- testRunner.Then("haben Subjekte eine passende Register Methode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
+    testRunner.Then("darf diese Liste nicht leer sein", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
 #line hidden
-            this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Subjekte haben eine Unregister Methode, welche als einzigen Paramter ein Interfac" +
-            "e entgegennimmt")]
-        public virtual void SubjekteHabenEineUnregisterMethodeWelcheAlsEinzigenParamterEinInterfaceEntgegennimmt()
+        [NUnit.Framework.DescriptionAttribute("Alle Subjekte sollen eine Methode zum Hinzufügen eines Beobachters bieten")]
+        public virtual void AlleSubjekteSollenEineMethodeZumHinzufugenEinesBeobachtersBieten()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Subjekte haben eine Unregister Methode, welche als einzigen Paramter ein Interfac" +
-                    "e entgegennimmt", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Alle Subjekte sollen eine Methode zum Hinzufügen eines Beobachters bieten", ((string[])(null)));
 #line 10
-this.ScenarioSetup(scenarioInfo);
+    this.ScenarioSetup(scenarioInfo);
+#line 6
+  this.FeatureBackground();
 #line 11
- testRunner.Given("mindestens ein Subjekte", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
-#line 12
- testRunner.Then("haben Subjekte eine passende Unregister Methode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
+      testRunner.Then("sollen alle Subjekte eine Methode zum Hinzufügen bieten", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Subjekte haben eine Update Methode, welche keinen Parameter entgegennimmt")]
-        public virtual void SubjekteHabenEineUpdateMethodeWelcheKeinenParameterEntgegennimmt()
+        [NUnit.Framework.DescriptionAttribute("Alle Subjekte sollen eine Methode zum Entfernen eines Beobachters bieten")]
+        public virtual void AlleSubjekteSollenEineMethodeZumEntfernenEinesBeobachtersBieten()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Subjekte haben eine Update Methode, welche keinen Parameter entgegennimmt", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Alle Subjekte sollen eine Methode zum Entfernen eines Beobachters bieten", ((string[])(null)));
+#line 13
+    this.ScenarioSetup(scenarioInfo);
+#line 6
+  this.FeatureBackground();
 #line 14
-this.ScenarioSetup(scenarioInfo);
-#line 15
- testRunner.Given("mindestens ein Subjekte", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
+      testRunner.Then("sollen alle Subjekte eine Methode zum Entfernen bieten", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Alle Subjekte sollen eine Methode zum Aktualisieren aller Beobachters bieten")]
+        public virtual void AlleSubjekteSollenEineMethodeZumAktualisierenAllerBeobachtersBieten()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Alle Subjekte sollen eine Methode zum Aktualisieren aller Beobachters bieten", ((string[])(null)));
 #line 16
- testRunner.Then("haben Subjekte eine passende Update Methode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
+    this.ScenarioSetup(scenarioInfo);
+#line 6
+  this.FeatureBackground();
+#line 17
+      testRunner.Then("sollen alle Subjekte eine Methode zum Aktualisieren bieten", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Observer kann sich bei Subjekt registieren und wird danach geupdated")]
-        public virtual void ObserverKannSichBeiSubjektRegistierenUndWirdDanachGeupdated()
+        [NUnit.Framework.DescriptionAttribute("Beobachter sollen aufgerufen werden, wenn sie registriert sind")]
+        public virtual void BeobachterSollenAufgerufenWerdenWennSieRegistriertSind()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Observer kann sich bei Subjekt registieren und wird danach geupdated", ((string[])(null)));
-#line 18
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Beobachter sollen aufgerufen werden, wenn sie registriert sind", ((string[])(null)));
 #line 19
- testRunner.Given("mindestens ein Subjekte", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
+    this.ScenarioSetup(scenarioInfo);
+#line 6
+  this.FeatureBackground();
 #line 20
- testRunner.Then("haben Subjekte eine passende Register Methode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
+      testRunner.Given("ein Beobachter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
 #line 21
- testRunner.Then("haben Subjekte eine passende Update Methode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
+      testRunner.When("sich dieser Beobachter registriert", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Wenn ");
 #line 22
- testRunner.When("sich bei allen Subjekten je ein Observer mit den Namen \"TestObserver\" registiert", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Wenn ");
+      testRunner.And("die Method zum Aktualisieren aufgerufen wird", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Und ");
 #line 23
- testRunner.When("Subjekte die Update Methode Aufrufen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Wenn ");
-#line 24
- testRunner.When("Subjekte die Update Methode Aufrufen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Wenn ");
-#line 25
- testRunner.Then("sollen alle Observer \"TestObserver\" \"2\" mal aufgerufen worden sein", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
+      testRunner.Then("soll der Beobachter aufgerufen werden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Observer kann sich bei Subjekt abmelden und wird danach nicht mehr geupdated")]
-        public virtual void ObserverKannSichBeiSubjektAbmeldenUndWirdDanachNichtMehrGeupdated()
+        [NUnit.Framework.DescriptionAttribute("Beobachter sollen nicht mehr aufgerufen werden, wenn sie sich vom Subjekt abmelde" +
+            "n")]
+        public virtual void BeobachterSollenNichtMehrAufgerufenWerdenWennSieSichVomSubjektAbmelden()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Observer kann sich bei Subjekt abmelden und wird danach nicht mehr geupdated", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Beobachter sollen nicht mehr aufgerufen werden, wenn sie sich vom Subjekt abmelde" +
+                    "n", ((string[])(null)));
+#line 25
+    this.ScenarioSetup(scenarioInfo);
+#line 6
+  this.FeatureBackground();
+#line 26
+      testRunner.Given("ein Beobachter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
 #line 27
-this.ScenarioSetup(scenarioInfo);
+      testRunner.When("sich dieser Beobachter registriert", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Wenn ");
 #line 28
- testRunner.Given("mindestens ein Subjekte", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
+      testRunner.And("sich dieser Beobachter wieder abmeldet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Und ");
 #line 29
- testRunner.Then("haben Subjekte eine passende Register Methode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
+      testRunner.And("die Method zum Aktualisieren aufgerufen wird", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Und ");
 #line 30
- testRunner.Then("haben Subjekte eine passende Update Methode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
-#line 31
- testRunner.Then("haben Subjekte eine passende Unregister Methode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
-#line 32
- testRunner.When("sich bei allen Subjekten je ein Observer mit den Namen \"TestObserver\" registiert", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Wenn ");
-#line 33
- testRunner.When("Subjekte die Update Methode Aufrufen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Wenn ");
-#line 34
- testRunner.When("Subjekte die Update Methode Aufrufen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Wenn ");
-#line 35
- testRunner.Then("sollen alle Observer \"TestObserver\" \"2\" mal aufgerufen worden sein", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
+      testRunner.Then("soll der Beobachter nicht aufgerufen worden sein", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
 #line hidden
             this.ScenarioCleanup();
         }

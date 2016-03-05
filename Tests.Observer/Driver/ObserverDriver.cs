@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using DotNetAttributes;
 using FluentAssertions;
-using StudentsAttributes;
 using TestExecutor.Common.Reflection;
 
-namespace Tests.ExerciseOne.Driver
+namespace Tests.Observer.Driver
 {
     public class ObserverDriver
     {

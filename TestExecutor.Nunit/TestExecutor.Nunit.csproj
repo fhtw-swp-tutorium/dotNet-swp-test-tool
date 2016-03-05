@@ -40,7 +40,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\_solutionItems\GlobalAssemblyInfo.cs">
+    <Compile Include="..\.solutionItems\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ExerciseTestDefintion\ExerciseTestDefintion.cs" />
@@ -58,6 +58,10 @@
     <ProjectReference Include="..\TestExecutor.Common\TestExecutor.Common.csproj">
       <Project>{264756C2-0D5F-4D61-AF65-131D4E819958}</Project>
       <Name>TestExecutor.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tests.Command\Tests.Command.csproj">
+      <Project>{3CC5C073-090B-467E-8E62-A3F4B8B50797}</Project>
+      <Name>Tests.Command</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tests.Common\Tests.Common.csproj">
       <Project>{EFACB3EB-4EF6-4042-AF94-9AA5782268F9}</Project>

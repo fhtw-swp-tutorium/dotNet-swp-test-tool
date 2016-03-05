@@ -1,35 +1,33 @@
-﻿Funktionalität: Observer
+#language: de
+#noinspection SpellCheckingInspection
 
-Szenario: Es existiert mindestens ein Subjekt
-	Gegeben sei mindestens ein Subjekte
+Funktionalität: Observer
 
-Szenario: Subjekte haben eine Register Methode, welche als einzigen Paramter ein Interface entgegennimmt
-	Gegeben sei mindestens ein Subjekte
-	Dann haben Subjekte eine passende Register Methode
-	
-Szenario: Subjekte haben eine Unregister Methode, welche als einzigen Paramter ein Interface entgegennimmt
-	Gegeben sei mindestens ein Subjekte
-	Dann haben Subjekte eine passende Unregister Methode
- 
-Szenario: Subjekte haben eine Update Methode, welche keinen Parameter entgegennimmt
-	Gegeben sei mindestens ein Subjekte
-	Dann haben Subjekte eine passende Update Methode
+  Grundlage:
+    Gegeben sei eine Liste von Subjekten
+    Dann darf diese Liste nicht leer sein
 
-Szenario: Observer kann sich bei Subjekt registieren und wird danach geupdated
-	Gegeben sei mindestens ein Subjekte
-	Dann haben Subjekte eine passende Register Methode
-	Dann haben Subjekte eine passende Update Methode
-	Wenn sich bei allen Subjekten je ein Observer mit den Namen "TestObserver" registiert
-	Wenn Subjekte die Update Methode Aufrufen
-	Wenn Subjekte die Update Methode Aufrufen
-	Dann sollen alle Observer "TestObserver" "2" mal aufgerufen worden sein
+    Szenario: Alle Subjekte sollen eine Methode zum Hinzufügen eines Beobachters bieten
+      Dann sollen alle Subjekte eine Methode zum Hinzufügen bieten
 
-Szenario: Observer kann sich bei Subjekt abmelden und wird danach nicht mehr geupdated
-	Gegeben sei mindestens ein Subjekte
-	Dann haben Subjekte eine passende Register Methode
-	Dann haben Subjekte eine passende Update Methode
-	Dann haben Subjekte eine passende Unregister Methode
-	Wenn sich bei allen Subjekten je ein Observer mit den Namen "TestObserver" registiert
-	Wenn Subjekte die Update Methode Aufrufen
-	Wenn Subjekte die Update Methode Aufrufen
-	Dann sollen alle Observer "TestObserver" "2" mal aufgerufen worden sein
+    Szenario: Alle Subjekte sollen eine Methode zum Entfernen eines Beobachters bieten
+      Dann sollen alle Subjekte eine Methode zum Entfernen bieten
+
+    Szenario: Alle Subjekte sollen eine Methode zum Aktualisieren aller Beobachters bieten
+      Dann sollen alle Subjekte eine Methode zum Aktualisieren bieten
+
+    Szenario: Beobachter sollen aufgerufen werden, wenn sie registriert sind
+      Gegeben sei ein Beobachter
+      Wenn sich dieser Beobachter registriert
+      Und die Method zum Aktualisieren aufgerufen wird
+      Dann soll der Beobachter aufgerufen werden
+
+    Szenario: Beobachter sollen nicht mehr aufgerufen werden, wenn sie sich vom Subjekt abmelden
+      Gegeben sei ein Beobachter
+      Wenn sich dieser Beobachter registriert
+      Und sich dieser Beobachter wieder abmeldet
+      Und die Method zum Aktualisieren aufgerufen wird
+      Dann soll der Beobachter nicht aufgerufen worden sein
+
+
+

@@ -10,14 +10,19 @@ namespace TestExecutor.Common.Reflection
 {
     public static class TypeProvider
     {
-        private const string SwpAttributesDllName = "SwpAttributes";
+        private const string SwpAttributesDllName = "dotNetAttributes";
         private static string _directoryName;
         private static ILoggerFacade _loggerFacade;
 
         public static IReadOnlyCollection<Type> GetTypesWithAttribute<T>() where T : Attribute
         {
             return Types.Where(m => m.GetCustomAttributes<T>(false).Any()).ToList();
-        } 
+        }
+
+        public static IReadOnlyCollection<Type> GetTypesWithAttribute(Type attributeType)
+        {
+            return Types.Where(m => m.GetCustomAttributes(attributeType, false).Any()).ToList();
+        }
 
         public static IReadOnlyList<Type> Types { get; private set; }
 

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using StudentsAttributes;
+using DotNetAttributes;
 using TestExecutor.Common.Reflection;
 
 namespace Tests.Singleton.Driver
