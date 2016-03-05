@@ -13,9 +13,9 @@ namespace TestExecutor.Nunit.ExerciseTestDefintion
             {
                 case "ue1":
                     return new ExerciseTestDefintion()
-                        .AddTestDefintion(new ObserverDefintion())
-                        .AddTestDefintion(new SingletonDefintion())
-                        .AddTestDefintion(new CommandDefintion());
+                        .AddTestDefintion(new ObserverDefinition())
+                        .AddTestDefintion(new SingletonDefinition())
+                        .AddTestDefintion(new CommandDefinition());
             }
 
             throw new Exception("no ExericseDefition Found fo exercise");

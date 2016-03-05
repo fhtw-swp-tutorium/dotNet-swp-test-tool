@@ -1,6 +1,6 @@
 using Castle.DynamicProxy;
 
-namespace Tests.Common
+namespace Tests.Common.Proxy
 {
     public class CountingInterceptor : StandardInterceptor
     {

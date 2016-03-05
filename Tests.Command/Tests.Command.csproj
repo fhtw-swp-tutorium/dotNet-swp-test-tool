@@ -75,7 +75,7 @@
     </Compile>
     <Compile Include="Driver\CommandDriver.cs" />
     <Compile Include="CommandSteps.cs" />
-    <Compile Include="CommandDefintion.cs" />
+    <Compile Include="CommandDefinition.cs" />
     <Compile Include="Driver\InvokerProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Driver\CommandProxy.cs" />
