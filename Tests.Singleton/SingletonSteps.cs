@@ -1,6 +1,5 @@
 using FluentAssertions;
 using TechTalk.SpecFlow;
-using Tests.Common;
 using Tests.Common.TestTypes;
 using Tests.Singleton.Driver;
 
