@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using DotNetAttributes;
-using FluentAssertions;
-using Tests.Common;
+using DotNetAttributes.Command;
 using Tests.Common.Proxy;
 using Tests.Common.TestTypes;
 

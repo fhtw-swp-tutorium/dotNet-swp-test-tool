@@ -85,7 +85,7 @@ namespace Tests.Command
 #line 11
       testRunner.When("ich in jeder Klasse nach einer Methode mit dem Attribut \"InvokeCommand\" suche", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Wenn ");
 #line 12
-      testRunner.Then("erwarte ich mir jeweils eine Methode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
+      testRunner.Then("erwarte ich mir jeweils genau eine Methode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -106,7 +106,7 @@ namespace Tests.Command
 #line 16
       testRunner.Then("muss jede Methode genau einen Parameter haben", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
 #line 17
-      testRunner.And("muss jeder Parameter ein Interface sein", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Und ");
+      testRunner.And("jeder Parameter muss ein Interface sein", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Und ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -139,13 +139,13 @@ namespace Tests.Command
   this.FeatureBackground();
 #line 24
       testRunner.When("ich in jeder Klasse nach einer Methode mit dem Attribut \"InvokeCommand\" suche", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Wenn ");
-#line 26
+#line 25
       testRunner.And("ich eine Instanz des Invokers erzeuge", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Und ");
-#line 27
+#line 26
       testRunner.And("ich eine dynamische Instanz des Kommandos erzeuge", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Und ");
-#line 28
+#line 27
       testRunner.And("dieses Kommando an den Invoker übergebe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Und ");
-#line 29
+#line 28
       testRunner.Then("soll mindestens eine Methode des Kommandos aufgerufen werden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
 #line hidden
             this.ScenarioCleanup();

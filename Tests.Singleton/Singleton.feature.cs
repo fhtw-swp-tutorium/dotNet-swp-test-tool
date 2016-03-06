@@ -67,7 +67,7 @@ namespace Tests.Singleton
         {
 #line 6
   #line 7
-    testRunner.Given("eine Liste von Singletons", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
+    testRunner.Given("eine Liste von Klassen mit dem Attribut \"Singleton\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeben sei ");
 #line 8
     testRunner.Then("darf diese Liste nicht leer sein", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
 #line hidden
@@ -114,6 +114,8 @@ namespace Tests.Singleton
   this.FeatureBackground();
 #line 17
     testRunner.Then("sollen alle Singletons immer dieselbe Instanz zurückgeben", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
+#line 18
+    testRunner.And("diese darf nicht null sein", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Und ");
 #line hidden
             this.ScenarioCleanup();
         }

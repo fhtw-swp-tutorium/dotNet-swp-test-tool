@@ -11,6 +11,12 @@ namespace Tests.Common.TestTypes
     {
         public IDictionary<Type, List<MethodInfo>> ClassMethodList { get; } = new Dictionary<Type, List<MethodInfo>>();
 
+        public TypeContext SetClassList(string attributeName)
+        {
+            var attributeType = TypeProvider.GetType(attributeName);
+            return SetClassList(attributeType);
+        }
+
         public TypeContext SetClassList(Type attributeType)
         {
             ClassMethodList.Clear();
@@ -23,6 +29,11 @@ namespace Tests.Common.TestTypes
             }
 
             return this;
+        }
+
+        public TypeContext OnlyMethodsWithAttribute(string attributeName)
+        {
+            return OnlyMethodsWithAttribute(TypeProvider.GetType(attributeName));
         }
 
         public TypeContext OnlyMethodsWithAttribute(Type attributeType)

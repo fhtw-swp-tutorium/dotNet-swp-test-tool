@@ -1,49 +1,77 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using DotNetAttributes;
-using FluentAssertions;
-using TestExecutor.Common.Reflection;
+using DotNetAttributes.Observer;
+using Tests.Common.Proxy;
+using Tests.Common.TestTypes;
 
 namespace Tests.Observer.Driver
 {
     public class ObserverDriver
     {
         private List<SubjectProxy> _subjects;
+        private List<ObserverProxy> _observerProxies; 
 
-        public List<SubjectProxy> Subjects
+        public void GenerateSubjects(TypeContext typeContext)
         {
-            get { return _subjects ?? (_subjects = GetSubjects()); }
+            var types = typeContext.ClassMethodList.Keys;
+            var invokerObjects = new ObjectFactory().GenerateObjects(typeof(SubjectAttribute), types);
+
+            _subjects = invokerObjects.Select(SubjectProxy.Create).ToList();
         }
 
-        private List<SubjectProxy> GetSubjects()
+        public void GenerateObserver(TypeContext typeContext)
         {
-            var subjects = new List<SubjectProxy>();
-            var subjectTypes = TypeProvider.GetTypesWithAttribute<SubjectAttribute>().ToList();
-
-            foreach (var subject in subjectTypes)
+            var registerMethods = typeContext.OnlyMethodsWithAttribute(typeof(RegisterObserverAttribute));
+            var observerInterfaces = new List<Type>();
+            registerMethods.ClassMethodList.Values.ToList().ForEach(m =>
             {
-                var customAttributes = subject.GetCustomAttribute<SubjectAttribute>();
-                var factoryType = customAttributes.Factory;
+                var parameterType = m.First().GetParameters().First().ParameterType;
+                if (!parameterType.IsInterface) throw new ArgumentException("Parameter is no interface");
+                observerInterfaces.Add(parameterType);
+            });
 
-                object instance;
+            _observerProxies = observerInterfaces.Select(ObserverProxy.Create).ToList();
+        }
 
-                if (factoryType != null)
-                {
-                    var factory = Activator.CreateInstance(factoryType);
-                    var createMethod = factory.GetType().Methods().First(m => m.IsPublic && !m.GetParameters().Any());
-                    instance = createMethod.Invoke(factory, new object[] { });
-                }
-                else
-                {
-                    instance = Activator.CreateInstance(subject);
-                }
+        public void RegisterObserver()
+        {
+            if (_subjects.Count != _observerProxies.Count)
+                throw new Exception("there are not the some number of  Subjects and Observers");
 
-                subjects.Add(new SubjectProxy(instance));
+            for (var i = 0; i < _subjects.Count; i++)
+            {
+                _subjects[i].RegisterObserver(_observerProxies[i]);
             }
+        }
 
-            return subjects;
+        public void UnregisterObserver()
+        {
+            if (_subjects.Count != _observerProxies.Count)
+                throw new Exception("there are not the some number of  Subjects and Observers");
+
+            for (var i = 0; i < _subjects.Count; i++)
+            {
+                _subjects[i].UnregisterObserver(_observerProxies[i]);
+            }
+        }
+
+        public void NotifyObservers()
+        {
+            foreach (SubjectProxy subject in _subjects)
+            {
+                subject.Notify();
+            }
+        }
+
+        public bool ObserversHaveBeenCalledAtLeast(int times)
+        {
+            return _observerProxies.All(c => c.Interceptor.Count >= times);
+        }
+
+        public bool ObserversHaveNeverBeenCalled()
+        {
+            return _observerProxies.All(c => c.Interceptor.Count == 0);
         }
     }
 }

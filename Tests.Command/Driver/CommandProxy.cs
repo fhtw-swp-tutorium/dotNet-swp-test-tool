@@ -1,6 +1,5 @@
 using System;
 using Castle.DynamicProxy;
-using Tests.Common;
 using Tests.Common.Proxy;
 
 namespace Tests.Command.Driver

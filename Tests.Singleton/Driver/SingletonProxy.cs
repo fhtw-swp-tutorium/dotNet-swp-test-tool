@@ -1,4 +1,5 @@
 using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -7,10 +8,13 @@ namespace Tests.Singleton.Driver
 {
     public class SingletonProxy
     {
-
         private readonly Type _singleton;
+        public static SingletonProxy Generate(Type type)
+        {
+            return new SingletonProxy(type);
+        }
 
-        public SingletonProxy(Type singleton)
+        private SingletonProxy(Type singleton)
         {
             _singleton = singleton;
         }
@@ -39,7 +43,8 @@ namespace Tests.Singleton.Driver
         private List<MethodInfo> SingletonInstanceMethod()
         {
             return _singleton
-                .GetMethods(BindingFlags.Public | BindingFlags.Static)
+                .GetMethods()
+                .Where(m => m.IsStatic)
                 .Where(m => m.IsPublic)
                 .Where(m => m.GetParameters().Length == 0)
                 .Where(m => m.ReturnType == _singleton)

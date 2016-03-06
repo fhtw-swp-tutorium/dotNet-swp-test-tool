@@ -1,47 +1,49 @@
 using FluentAssertions;
 using TechTalk.SpecFlow;
+using Tests.Common;
+using Tests.Common.TestTypes;
 using Tests.Singleton.Driver;
 
 namespace Tests.Singleton
 {
     [Binding]
-    public class SingletonSteps
+    public class SingletonSteps : TypeContextSteps
     {
         private readonly SingletonDriver _singletonDriver;
+        private readonly TypeContext _typeContext;
 
-        public SingletonSteps(SingletonDriver singletonDriver)
+        public SingletonSteps(SingletonDriver singletonDriver, TypeContext typeContext) : base(typeContext)
         {
             _singletonDriver = singletonDriver;
+            _typeContext = typeContext;
         }
 
-        [Given(@"mindestens ein Singleton")]
-        public void AngenommenMindestensEinSingleton()
+        [Then(@"sollen alle Singletons eine Methode zum Zugriff auf die Instanz haben")]
+        public void DannSollenAlleSingletonsEineMethodeZumZugriffAufDieInstanzHaben()
         {
-            _singletonDriver.Singletons.Count.Should().BeGreaterThan(0);
+            _singletonDriver.GenerateSingletons(_typeContext);
+            _singletonDriver.SingletonsCanBeAccessed().Should().BeTrue();
         }
 
-        [Then(@"bieten Singletons eine passende Methode zur Instanzierung")]
-        public void DannBietenSingletonsEinePassendeMethodeZurInstanzierung()
+        [Then(@"sollen alle Singletons einen privaten Konstruktor haben")]
+        public void DannSollenAlleSingletonsEinenPrivatenKonstruktorHaben()
         {
-            _singletonDriver.Singletons.ForEach(s => s.HasInstancePropertyOrMethod().Should().BeTrue());
+            _singletonDriver.GenerateSingletons(_typeContext);
+            _singletonDriver.SingletonsHavePrivateConstructor().Should().BeTrue();
         }
 
-        [Then(@"haben singletons einen privaten Konstruktor")]
-        public void DannHabenSingletonsEinenPrivatenKonstruktor()
+        [Then(@"sollen alle Singletons immer dieselbe Instanz zurückgeben")]
+        public void DannSollenAlleSingletonsImmerDieselbeInstanzZuruckgeben()
         {
-            _singletonDriver.Singletons.ForEach(s => s.HasNoPublicConstructor().Should().BeTrue());
+            _singletonDriver.GenerateSingletons(_typeContext);
+            _singletonDriver.SingletonsAlwaysReturnTheSameInstance().Should().BeTrue();
         }
 
-        [Then(@"geben singletons immer dieselbe Instanz zurück")]
-        public void DannGebenSingletonsImmerDieselbeInstanzZuruck()
+        [Then(@"diese darf nicht null sein")]
+        public void DannDieseDarfNichtNullSein()
         {
-            _singletonDriver.Singletons.ForEach(s =>
-            {
-                var firstInstance = s.GetInstance();
-                var secondInstance = s.GetInstance();
-
-                firstInstance.Should().BeSameAs(secondInstance);
-            });
+            _singletonDriver.GenerateSingletons(_typeContext);
+            _singletonDriver.SingletonsNeverReturnNull().Should().BeTrue();
         }
 
     }

@@ -4,7 +4,7 @@
 Funktionalität: Singleton
 
   Grundlage:
-    Gegeben sei eine Liste von Singletons
+    Gegeben sei eine Liste von Klassen mit dem Attribut "Singleton"
     Dann darf diese Liste nicht leer sein
 
   Szenario: Alle Singletons sollen eine Methode zum Zugriff auf die Instanz haben

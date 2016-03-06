@@ -1,6 +1,5 @@
 using System;
 using Castle.DynamicProxy;
-using Tests.Common;
 using Tests.Common.Proxy;
 
 namespace Tests.Observer.Driver
@@ -20,7 +19,7 @@ namespace Tests.Observer.Driver
             return new ObserverProxy(interceptor, proxy);
         }
 
-        public ObserverProxy(CountingInterceptor interceptor, object proxy)
+        private ObserverProxy(CountingInterceptor interceptor, object proxy)
         {
             Proxy = proxy;
             Interceptor = interceptor;

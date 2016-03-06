@@ -13,23 +13,13 @@ namespace TestExecutor.Common.Reflection
         private const string SwpAttributesDllName = "dotNetAttributes";
         private static string _directoryName;
         private static ILoggerFacade _loggerFacade;
-
-        public static IReadOnlyCollection<Type> GetTypesWithAttribute<T>() where T : Attribute
-        {
-            return Types.Where(m => m.GetCustomAttributes<T>(false).Any()).ToList();
-        }
-
-        public static IReadOnlyCollection<Type> GetTypesWithAttribute(Type attributeType)
-        {
-            return Types.Where(m => m.GetCustomAttributes(attributeType, false).Any()).ToList();
-        }
-
-        public static IReadOnlyList<Type> Types { get; private set; }
+        private static Dictionary<string, Type> _typeMap;
 
         public static void Initialize(ILoggerFacade loggerFacade, string exePath)
         {
             _directoryName = Path.GetDirectoryName(exePath);
             _loggerFacade = loggerFacade;
+            _typeMap = new Dictionary<string, Type>();
 
             try
             {
@@ -54,7 +44,19 @@ namespace TestExecutor.Common.Reflection
             }            
         }
 
-        public static bool CheckCorrectVersionOfAttributes(Type type)
+        public static IReadOnlyCollection<Type> GetTypesWithAttribute<T>() where T : Attribute
+        {
+            return Types.Where(m => m.GetCustomAttributes<T>(false).Any()).ToList();
+        }
+
+        public static IReadOnlyCollection<Type> GetTypesWithAttribute(Type attributeType)
+        {
+            return Types.Where(m => m.GetCustomAttributes(attributeType, false).Any()).ToList();
+        }
+
+        public static IReadOnlyList<Type> Types { get; private set; }
+
+        public static bool CheckCorrectVersionOfAttributeAssembly(Type type)
         {
             var studentsAttributeDllFullPath = Path.Combine(_directoryName, SwpAttributesDllName + ".dll");
 
@@ -69,7 +71,7 @@ namespace TestExecutor.Common.Reflection
             return versionsAreEqual;
         }
 
-        public static bool CheckIfAttributesExist()
+        public static bool CheckIfAttributeAssemblyExists()
         {
             var studentsAttributeDllFullPath = Path.Combine(_directoryName, SwpAttributesDllName + ".dll");
 
@@ -78,6 +80,23 @@ namespace TestExecutor.Common.Reflection
                 _loggerFacade.Error(string.Format("Es konnte keine {0} Assembly gefunden werden.", SwpAttributesDllName));
 
             return attributeDllExists;
+        }
+
+
+        public static void RegisterTypeMappings(TypeMappingContainer typeMappingContainer)
+        {
+            foreach (var type in typeMappingContainer.TypeMap)
+            {
+                _typeMap.Add(type.Key, type.Value);
+            }
+        }
+
+        public static Type GetType(string mappingName)
+        {
+            if (!_typeMap.ContainsKey(mappingName))
+                throw new Exception($"Type for typename ({mappingName}) can not be found");
+
+            return _typeMap[mappingName];
         }
     }
 }

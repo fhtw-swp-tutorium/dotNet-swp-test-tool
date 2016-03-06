@@ -9,7 +9,7 @@ Funktionalität: Kommando
 
     Szenario: Alle Invoker müssen genaue eine Methode mit dem Attribut "InvokeCommand" haben
       Wenn ich in jeder Klasse nach einer Methode mit dem Attribut "InvokeCommand" suche
-      Dann erwarte ich mir jeweils eine Methode
+      Dann erwarte ich mir jeweils genau eine Methode
 
     Szenario: Jede Methode mit dem Attribut "InvokeCommand" darf genau ein Interface als Parameter nehmen
       Wenn ich in jeder Klasse nach einer Methode mit dem Attribut "InvokeCommand" suche

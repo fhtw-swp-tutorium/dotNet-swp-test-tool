@@ -1,66 +1,62 @@
 ﻿using FluentAssertions;
 using TechTalk.SpecFlow;
+using Tests.Common.TestTypes;
 using Tests.Observer.Driver;
 
 namespace Tests.Observer
 {
     [Binding]
-    class ObserverSteps
+    class ObserverSteps : TypeContextSteps
     {
         private readonly ObserverDriver _observerContext;
+        private readonly TypeContext _typeContext;
 
-        public ObserverSteps(ObserverDriver observerContext)
+        public ObserverSteps(ObserverDriver observerContext, TypeContext typeContext) : base(typeContext)
         {
             _observerContext = observerContext;
+            _typeContext = typeContext;
         }
 
-        [Given(@"mindestens ein Subjekte")]
-        public void AngenommenMindestensEinSubjekte()
+        [Given(@"eine Instanz des Subjekts")]
+        public void AngenommenEineInstanzDesSubjekts()
         {
-            var subjectProxies = _observerContext.Subjects;
-            subjectProxies.Count.Should().BeGreaterThan(0);
+            _observerContext.GenerateSubjects(_typeContext);
         }
 
-        [Then(@"haben Subjekte eine passende Register Methode")]
-        public void DannHabenSubjekteEineReigsterMethode()
+        [Given(@"eine Instanz des Beobachters")]
+        public void AngenommenEineInstanzDesBeobachters()
         {
-            var subjectProxies = _observerContext.Subjects;
-            subjectProxies.ForEach(sp => sp.HasAppropriateAddMethod.Should().BeTrue());
+            _observerContext.GenerateObserver(_typeContext);
         }
 
-        [Then(@"haben Subjekte eine passende Update Methode")]
-        public void DannHabenSubjekteEineUpdateMethode()
+        [When(@"ich diesen Beobachter hinzufügen")]
+        public void WennIchDiesenBeobachterHinzufugen()
         {
-            var subjectProxies = _observerContext.Subjects;
-            subjectProxies.ForEach(sp => sp.HasAppropriateUpdateMethod.Should().BeTrue());
+            _observerContext.RegisterObserver();
         }
 
-        [Then(@"haben Subjekte eine passende Unregister Methode")]
-        public void DannHabenSubjekteEineUnregisterMethode()
+        [When(@"die Methode zum Aktualisieren aufrufe")]
+        public void WennDieMethodeZumAktualisierenAufrufe()
         {
-            var subjectProxies = _observerContext.Subjects;
-            subjectProxies.ForEach(sp => sp.HasAppropriateRemvoeMethod.Should().BeTrue());
+            _observerContext.NotifyObservers();
         }
 
-        [When(@"sich bei allen Subjekten je ein Observer mit den Namen ""(.*)"" registiert")]
-        public void WennSichBeiAllenSubjektenJeEinObserverMitDenNamenRegistiert(string name)
+        [Then(@"soll mindestens eine Methode des Beobachters aufgerufen werden")]
+        public void DannSollMindestensEineMethodeDesBeobachtersAufgerufenWerden()
         {
-            var subjectProxies = _observerContext.Subjects;
-            subjectProxies.ForEach(s => s.RegisterObserver(name));
+            _observerContext.ObserversHaveBeenCalledAtLeast(1).Should().BeTrue();
         }
 
-        [When(@"Subjekte die Update Methode Aufrufen")]
-        public void WennSubjekteDieUpdateMethodeAufrufen()
+        [When(@"ich diesen Beobachter entferne")]
+        public void WennIchDiesenBeobachterEntferne()
         {
-            var subjectProxies = _observerContext.Subjects;
-            subjectProxies.ForEach(sp => sp.UpdateObserver());
+            _observerContext.UnregisterObserver();
         }
 
-        [Then(@"sollen alle Observer ""(.*)"" ""(.*)"" mal aufgerufen worden sein")]
-        public void DannSollenAlleObserverMalAufgerufenWordenSein(string name, int invocations)
+        [Then(@"soll keine Methode des Beobachters aufgerufen werden")]
+        public void DannSollKeineMethodeDesBeobachtersAufgerufenWerden()
         {
-            var subjectProxies = _observerContext.Subjects;
-            subjectProxies.ForEach(sp => sp.GetObserver(name).Interceptor.Count.Should().Be(invocations));
+            _observerContext.ObserversHaveNeverBeenCalled().Should().BeTrue();
         }
     }
 }

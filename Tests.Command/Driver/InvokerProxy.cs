@@ -1,5 +1,5 @@
 using System.Linq;
-using DotNetAttributes;
+using DotNetAttributes.Command;
 
 namespace Tests.Command.Driver
 {

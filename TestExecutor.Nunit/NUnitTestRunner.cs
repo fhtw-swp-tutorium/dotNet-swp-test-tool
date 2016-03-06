@@ -7,6 +7,7 @@ using TestExecutor.Common;
 using TestExecutor.Common.Reflection;
 using TestExecutor.Nunit.ExerciseTestDefintion;
 using TestExecutor.Nunit.NUnitTestRunnerUtils;
+using Tests.Common.TestTypes;
 using TestResult = TestExecutor.Common.TestResultEntities.TestResult;
 
 namespace TestExecutor.Nunit
@@ -36,9 +37,13 @@ namespace TestExecutor.Nunit
 
             foreach (var testDefintion in exerciseTestDefintion.TestDefintions)
             {
-                if(!TypeProvider.CheckIfAttributesExist()) break;
-                if(!TypeProvider.CheckCorrectVersionOfAttributes(testDefintion.GetAssemblyIdentifier)) break;
-                
+                var typeMappingContainer = new TypeMappingContainer();
+                testDefintion.RegisterTypeMappings(typeMappingContainer);
+                TypeProvider.RegisterTypeMappings(typeMappingContainer);
+
+                if(!TypeProvider.CheckIfAttributeAssemblyExists()) break;
+                if(!TypeProvider.CheckCorrectVersionOfAttributeAssembly(testDefintion.GetAssemblyIdentifier)) break;
+
                 var testListener = new CustomTestListener(testDefintion.TestGroupName);
                 nUnitTestAssemblyRunner.Load(Assembly.GetAssembly(testDefintion.GetAssemblyIdentifier), new Dictionary<string, string>());
                 nUnitTestAssemblyRunner.Run(testListener, new TestMethodFilter());

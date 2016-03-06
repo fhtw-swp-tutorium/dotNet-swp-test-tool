@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using DotNetAttributes;
-using TestExecutor.Common.Reflection;
+using Tests.Common.TestTypes;
 
 namespace Tests.Singleton.Driver
 {
@@ -9,16 +8,32 @@ namespace Tests.Singleton.Driver
     {
         private List<SingletonProxy> _singletons;
 
-        public List<SingletonProxy> Singletons
+        public void GenerateSingletons(TypeContext typeContext)
         {
-            get { return _singletons ?? (_singletons = GetSingletons()); }
+            _singletons = typeContext.ClassMethodList.Keys.Select(SingletonProxy.Generate).ToList();
         }
 
-        private List<SingletonProxy> GetSingletons()
+        public bool SingletonsCanBeAccessed()
         {
-            return
-                TypeProvider.GetTypesWithAttribute<SingletonAttribute>()
-                    .Select(t => new SingletonProxy(t)).ToList();
+            return _singletons.All(s => s.HasInstancePropertyOrMethod());
+        }
+
+        public bool SingletonsHavePrivateConstructor()
+        {
+            return _singletons.All(s => s.HasNoPublicConstructor());
+        }
+
+        public bool SingletonsAlwaysReturnTheSameInstance()
+        {
+            var firstInstances = _singletons.Select(s => s.GetInstance()).ToList();
+            var secondInstances = _singletons.Select(s => s.GetInstance()).ToList();
+
+            return !firstInstances.Where((t, i) => !object.ReferenceEquals(t, secondInstances[i])).Any();
+        }
+
+        public bool SingletonsNeverReturnNull()
+        {
+            return _singletons.Select(s => s.GetInstance()).All(i => i != null);
         }
     }
 }

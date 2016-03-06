@@ -40,6 +40,7 @@
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ITestExecutor.cs" />
+    <Compile Include="Reflection\TypeMappingContainer.cs" />
     <Compile Include="SwpTestToolException.cs" />
     <Compile Include="Reflection\TypeProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
