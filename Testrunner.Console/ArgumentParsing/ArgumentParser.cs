@@ -1,34 +1,51 @@
 using System;
-using System.Linq;
+using Common;
+using NDesk.Options;
 using Testrunner.Common.Arguments;
+using Testrunner.Console.Logging;
 
 namespace Testrunner.Console.ArgumentParsing
 {
     public class ArgumentParser : IArgumentParser
     {
-        public TestRunArguments Parse(string[] args)
+        private readonly ILoggerFacade _loggerFacade;
+
+        public ArgumentParser(ILoggerFacade loggerFacade)
         {
-            var exercises = Exercise.All().ToList();
+            _loggerFacade = loggerFacade;
+        }
 
-            args = args.Select(a => a.TrimStart('-')).ToArray();
+        public bool TryParse(string[] args, out TestRunArguments testRunArguments)
+        {
+            string exePath = null;
+            string exercise = null;
 
-            var invalidArgumentResult = new Func<TestRunArguments>(() => new TestRunArguments() {IsValid = false});
-
-            if (!args.Contains("exe") || exercises.Count(e => args.Contains(e.ExerciseAbbreviation)) != 1)
-                return invalidArgumentResult();
-
-            var exeIndex = Array.IndexOf(args, "exe") + 1;
-            if (args.Length <= exeIndex) return invalidArgumentResult();
-
-            var exePath = args[exeIndex];
-            if (!exePath.EndsWith(".exe")) return invalidArgumentResult();
-
-            return new TestRunArguments()
+            var p = new OptionSet()
             {
-                ExePath = args[exeIndex],
-                Exercise = exercises.First(e => args.Contains(e.ExerciseAbbreviation)),
-                IsValid = true
+                {"e|exercise=", "the name of the exercise. (ue1|ue2|ue3)", v => { exercise = v; }},
+                {"p|path=", "the path to the executable.", v => exePath = v}
             };
+            
+            p.Parse(args);
+            
+            if (exercise == null || exePath == null)
+            {
+                PrintUsage(p);
+
+                testRunArguments = new TestRunArguments(null, null);
+                return false;
+            }
+
+            testRunArguments = new TestRunArguments(exercise.ToLower(), exePath);
+            return true;
+        }
+
+        private static void PrintUsage(OptionSet p)
+        {
+            System.Console.WriteLine();
+            ColorConsole.WriteLine(ConsoleColor.Red, ConsoleColor.White, "Usage:");
+            System.Console.WriteLine();
+            p.WriteOptionDescriptions(System.Console.Out);
         }
     }
 }

@@ -24,15 +24,9 @@ namespace Testrunner.Console
         {
             PrintVersion();
 
-            if (!arguments.IsValid)
-            {
-                _logger.Error("Usage: CheckSwpProject.exe -exe pathToExe (-ue1|-ue2|-ue3)");
-                return;
-            }
-
             try
             {
-                var testResult = _testExecutor.Run(arguments.ExePath, arguments.Exercise.ExerciseAbbreviation);
+                var testResult = _testExecutor.Run(arguments.ExePath, arguments.Exercise);
                 PrintTestResult(testResult);
             }
             catch (SwpTestToolException e)

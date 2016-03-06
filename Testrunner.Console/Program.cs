@@ -12,7 +12,13 @@ namespace Testrunner.Console
             using (var scope = container.BeginLifetimeScope())
             {
                 var argumentParser = scope.Resolve<IArgumentParser>();
-                var arguments = argumentParser.Parse(args);
+
+                TestRunArguments arguments;
+                if (!argumentParser.TryParse(args, out arguments))
+                {
+                    System.Console.ReadLine();
+                    return;
+                }
 
                 var app = scope.Resolve<Application>();
                 app.Run(arguments);

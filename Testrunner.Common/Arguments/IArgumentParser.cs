@@ -1,7 +1,9 @@
+using System.IO;
+
 namespace Testrunner.Common.Arguments
 {
     public interface IArgumentParser
     {
-        TestRunArguments Parse(string[] args);
+        bool TryParse(string[] args, out TestRunArguments testRunArguments);
     }
 }

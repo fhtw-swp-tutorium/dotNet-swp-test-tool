@@ -2,8 +2,13 @@ namespace Testrunner.Common.Arguments
 {
     public class TestRunArguments
     {
-        public bool IsValid { get; set; }
-        public string ExePath { get; set; }
-        public Exercise Exercise { get; set; }
+        public TestRunArguments(string exercise, string exePath)
+        {
+            Exercise = exercise;
+            ExePath = exePath;
+        }
+
+        public string ExePath { get; private set; }
+        public string Exercise { get; private set; }
     }
 }
