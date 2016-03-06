@@ -17,10 +17,6 @@ namespace Tests.Command
             _commandDriver = commandDriver;
         }
 
-        public CommandSteps(TypeContext typeContext) : base(typeContext)
-        {
-        }
-
         [When(@"ich eine Instanz des Invokers erzeuge")]
         public void WennIchEineInstanzDesInvokersErzeuge()
         {
