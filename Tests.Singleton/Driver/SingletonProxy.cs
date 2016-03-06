@@ -32,7 +32,7 @@ namespace Tests.Singleton.Driver
 
         public bool HasNoPublicConstructor()
         {
-            return _singleton.GetConstructors(BindingFlags.Public).Length == 0;
+            return _singleton.GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance).Length > 0;
         }
 
         public bool HasInstancePropertyOrMethod()
@@ -46,6 +46,7 @@ namespace Tests.Singleton.Driver
                 .GetMethods()
                 .Where(m => m.IsStatic)
                 .Where(m => m.IsPublic)
+                .Where(m => !m.IsSpecialName)
                 .Where(m => m.GetParameters().Length == 0)
                 .Where(m => m.ReturnType == _singleton)
                 .ToList();
