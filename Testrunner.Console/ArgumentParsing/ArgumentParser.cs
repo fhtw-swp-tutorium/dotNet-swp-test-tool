@@ -6,13 +6,13 @@ namespace Testrunner.Console.ArgumentParsing
 {
     public class ArgumentParser : IArgumentParser
     {
-        public Arguments Parse(string[] args)
+        public TestRunArguments Parse(string[] args)
         {
             var exercises = Exercise.All().ToList();
 
             args = args.Select(a => a.TrimStart('-')).ToArray();
 
-            var invalidArgumentResult = new Func<Arguments>(() => new Arguments() {IsValid = false});
+            var invalidArgumentResult = new Func<TestRunArguments>(() => new TestRunArguments() {IsValid = false});
 
             if (!args.Contains("exe") || exercises.Count(e => args.Contains(e.ExerciseAbbreviation)) != 1)
                 return invalidArgumentResult();
@@ -23,7 +23,7 @@ namespace Testrunner.Console.ArgumentParsing
             var exePath = args[exeIndex];
             if (!exePath.EndsWith(".exe")) return invalidArgumentResult();
 
-            return new Arguments()
+            return new TestRunArguments()
             {
                 ExePath = args[exeIndex],
                 Exercise = exercises.First(e => args.Contains(e.ExerciseAbbreviation)),

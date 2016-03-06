@@ -52,6 +52,10 @@
       <Project>{E713E18A-2486-4D43-A203-C44DB8C17B5A}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Testrunner.Common\Testrunner.Common.csproj">
+      <Project>{597A269D-3227-481E-ADAC-BBE66E27E8DB}</Project>
+      <Name>Testrunner.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

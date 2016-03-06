@@ -20,7 +20,7 @@ namespace Testrunner.Console
             _logger = logger;
         }
 
-        public void Run(Arguments arguments)
+        public void Run(TestRunArguments arguments)
         {
             PrintVersion();
 
