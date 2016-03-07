@@ -28,7 +28,12 @@ namespace Tests.Singleton.Driver
             var firstInstances = _singletons.Select(s => s.GetInstance()).ToList();
             var secondInstances = _singletons.Select(s => s.GetInstance()).ToList();
 
-            return !firstInstances.Where((t, i) => !object.ReferenceEquals(t, secondInstances[i])).Any();
+            for (int i = 0; i < firstInstances.Count; i++)
+            {
+                if (!object.ReferenceEquals(firstInstances[i], secondInstances[i])) return false;
+            }
+
+            return true;
         }
 
         public bool SingletonsNeverReturnNull()
