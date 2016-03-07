@@ -2,7 +2,7 @@ language: csharp
 solution: CheckSwpProject.sln
 before_deploy:
 - cd Testrunner.Console/bin/Release/
-- zip -r SwpTestTool.zip .
+- zip -r SwpTestTool.zip . -x "*.mdb"
 - ls -l
 deploy:
   provider: releases
