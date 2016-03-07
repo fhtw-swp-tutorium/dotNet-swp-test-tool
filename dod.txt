@@ -1,0 +1,7 @@
+Definition of Done:
+
+AssemblyInfo Version anpassen
+Commiten
+Tag vergeben
+Pushen
+Alten Versionen ausblenden
