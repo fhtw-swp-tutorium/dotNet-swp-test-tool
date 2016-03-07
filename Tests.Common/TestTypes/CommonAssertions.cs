@@ -20,7 +20,17 @@ namespace Tests.Common.TestTypes
             => typeContext.ClassMethodList.All(c => c.Value.All(m => m.GetParameters().All(p => p.ParameterType.IsInterface)));
 
         public static bool EveryClassHasOneMethodWithPrefix(this TypeContext typeContext, IEnumerable<string> prefixes)
-            => typeContext.ClassMethodList.All(c => c.Value.Count(f => prefixes.Any(p => f.Name.ToLower().StartsWith(p.ToLower()))) == 1);
+        {
+            foreach (var classMethod in typeContext.ClassMethodList)
+            {
+                var methodInfos = classMethod.Value;
+                var enumerable = methodInfos.Where(m => prefixes.Any(p => m.Name.ToLower().Contains(p)));
+
+                if (!enumerable.Any()) return false;
+            }
+
+            return true;
+        }
 
 
 

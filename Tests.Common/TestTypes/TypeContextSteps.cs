@@ -70,7 +70,7 @@ namespace Tests.Common.TestTypes
             var prefixList = new List<string>();
             prefixes.Split(',').ForEach(s => prefixList.Add(s.Trim().ToLower()));
 
-            _typeContext.EveryClassHasOneMethodWithPrefix(prefixList);
+            _typeContext.EveryClassHasOneMethodWithPrefix(prefixList).Should().BeTrue();
         }
 
     }
